@@ -1,0 +1,145 @@
+Lista de Estatus
+	Creada
+	En espera de documentacion
+	En espera de pago
+	Entregada
+	
+Lista de Documentacion
+	Planos
+	Fotografias
+		Fecha
+
+Lista de Servicios
+	Avaluo
+		Estatus
+		Fechas (Inicio, finalizacion)
+		Costo
+		Lista de Documentacion
+	Estimacion
+		Estatus
+		Fechas (Inicio, finalizacion)
+		Costo
+		Lista de Documentacion
+		
+Lista de Clientes
+	Cliente -> Informacion del cliente (contacto)
+			-> Lista de trabajos (Avaluos y Estimaciones)
+			
+Busqueda
+	Estatus
+	Cliente
+	Fecha (Inicio, Finalizacion)
+	
+	para un mai necesito, 
+	nombre solicitante, 
+	rfc, 
+	nss, 
+	nombre del vendedor, 
+	rfc, 
+	escritura, 
+	recibo de agua, 
+	recibo predial, 
+	plano catastral, 
+	contacto de visita, 
+	numero de telefono o correo del contacto
+	
+	para el avaluo catastral es 
+	escritura, 
+	nombre del solicitante, 
+	nombre de vendedor, 
+	predial y 
+	plano catastral
+	
+	para la estimacion es plano catastral
+	
+	para el plano. el plano
+	
+	de cada uno se da anticipo y datos del contacto, para agendar visita
+
+<Avaluos>
+	<config>
+	</config>
+</Avaluos>
+
+<table>
+</table>
+
+Contacts
+	sak_contact
+	name
+	address
+	rfc
+	nss
+	phone
+	email
+	
+Services
+	sak_service
+	sak_contact
+	sak_status
+	amount_total
+	amount_paid
+
+MAI
+	sak_service
+	sak_contact_seller
+	notes
+
+MAI_Docs
+	sak_service
+	sak_document
+
+AC (Avaluo Catastral)
+	sak_service
+	sak_contact_seller
+	notes
+	
+AC_Docs
+	sak_service
+	sak_document
+
+Estimate
+	sak_service
+	notes
+	
+Estimate_Docs
+	sak_service
+	sak_document
+	
+Plano
+	sak_service
+	notes
+	
+Plano_Docs
+	sak_service
+	sak_document
+	
+Status
+	sak_status
+	description
+	
+Documents
+	sak_document
+	sak_documenttype
+	directory
+	
+Document Types
+	sak_documenttype
+	type
+	
+------------------------MANIFEST
+<manifest>
+	<metadata>
+		<table name="Tablename" columns="5">
+			<column name="Col1" type="type">
+			<index name="ind1" column="Col1">
+		</table>
+	</metadata>
+</manifest>	
+
+------------------------TABLE
+<table name="Tablename" lastrow="1">
+	<item rownum="1">
+		<column name="Col1">value</column>
+	</item>
+<table>

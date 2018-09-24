@@ -1,0 +1,6 @@
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\bin\Debug\XDB.dll
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\bin\Debug\XDB.pdb
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\obj\Debug\XDB.csproj.CoreCompileInputs.cache
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\obj\Debug\XDB.dll
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\obj\Debug\XDB.pdb
+C:\Users\Yop\Documents\Visual Studio 2015\Projects\XDB\XDB\obj\Debug\XDB.csprojAssemblyReference.cache

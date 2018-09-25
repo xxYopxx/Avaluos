@@ -32,6 +32,8 @@ namespace XData
         /// </summary>
         Dictionary<string, string> _columns;
 
+        Dictionary<string, string> _parameters;
+
         /// <summary>
         /// Table file reference
         /// </summary>
@@ -133,5 +135,77 @@ namespace XData
 
         #endregion
 
+        #region Query
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameters"></param>
+        internal XRecordSet Query(Dictionary<string, string> parameters, XDB.Operation operation, XDB.Filters filter)
+        {
+            _parameters = parameters;
+            bool success = false;
+            if (operation == XDB.Operation.Insert)
+            {
+                success = InsertData();
+                return null;
+            }
+            return null;
+        }
+
+        #endregion
+
+        #region Insert
+
+        private bool InsertData()
+        {
+            try
+            {
+                // Open file
+                XmlDocument table = new XmlDocument();
+                table.Load(_source);
+                // Get last rownum
+                XmlNode root = table.FirstChild;
+                int lastRownum = Convert.ToInt32(root.Attributes[XDB._attLastRow].Value);
+                // Create XML elements with attributes
+                XmlElement item = table.CreateElement(XDB._xmlItem);
+                XmlAttribute itemRowNum = table.CreateAttribute(XDB._attRownum);
+                itemRowNum.Value = (lastRownum + 1).ToString();
+                List<XmlElement> columns = new List<XmlElement>();
+                foreach (KeyValuePair<string, string> parameter in _parameters)
+                {
+                    XmlElement column = table.CreateElement(XDB._xmlColumn);
+                    XmlAttribute name = table.CreateAttribute(XDB._attName);
+                    name.Value = parameter.Key;
+                    column.Attributes.Append(name);
+                    column.Value = parameter.Value;
+                    columns.Add(column);
+                }
+                // Append elements
+                foreach (XmlElement column in columns)
+                {
+                    item.AppendChild(column);
+                }
+                // Save
+                root.AppendChild(item);
+                table.Save(_source);
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        #endregion
+
+
+        #region Update
+
+        #endregion
+
+        #region Search
+
+        #endregion
     }
 }

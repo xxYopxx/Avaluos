@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="XDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XQuery.cs" />
     <Compile Include="XRecord.cs" />
     <Compile Include="XRecordSet.cs" />
     <Compile Include="XTable.cs" />

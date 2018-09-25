@@ -12,6 +12,9 @@ namespace XData
 {
     public class XDB
     {
+        public enum Filters { Equals, Contains, Between, GreatherThan, LesserThan }
+        public enum Operation { Insert, Update, Search }
+
         #region XML elements
 
         internal const string _xmlManifest = "manifest";
@@ -175,6 +178,16 @@ namespace XData
             root.AppendChild(metadata);
             manifest.AppendChild(root);
             manifest.Save(_manifest_dir);
+        }
+
+        #endregion
+
+        #region Query
+        
+        public bool CreateRecord(object item)
+        {
+
+            return false;
         }
 
         #endregion

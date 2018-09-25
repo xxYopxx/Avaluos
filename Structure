@@ -143,3 +143,17 @@ Document Types
 		<column name="Col1">value</column>
 	</item>
 <table>
+
+
+create table services(sak_service int primary key not null, sak_contact int, sak_status int, amount_total int, amount_paid int);
+create table MAI(sak_service int primary key not null, sak_contact_seller int, notes text);
+create table MAI_Docs(sak_service,sak_document int);
+create table AC(sak_service int primary key not null, sak_contact_seller int, notes text);
+create table AC_Docs(sak_service, sak_document);
+create table Estimate(sak_service int primary key not null, notes text);
+create table Estimate_Docs(sak_service, sak_document int);
+create table Print(sak_service int primary key not null, notes text);
+create table Print_Docs(sak_service int, sak_document int);
+create table status(sak_status int primary key not null, description text);
+create table documents(sak_document int primary key not null, sak_documenttype int, directory text);
+create table document_types(sak_documenttype int primary key not null, type text);

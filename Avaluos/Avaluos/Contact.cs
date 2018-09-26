@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Odbc;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,8 @@ namespace Avaluos
         /// Contact's electronic mail address
         /// </summary>
         string _email;
+
+        OdbcConnection sqlConnection;
 
         #endregion
 
@@ -102,6 +105,57 @@ namespace Avaluos
         public Contact(int Sak)
         {
 
+        }
+
+        #endregion
+
+        #region Data operations
+
+        private void AddContact()
+        {
+            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
+            try
+            {
+                sqlConnection.Open();
+                string sentence = "INSERT INTO CONTACTS(SAK_CONTACT, NAME, ADDRESS, RFC,NSS,PHONE,EMAIL) " +
+                    "VALUES()"
+                    ;
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void LoadContact(int sak_contact)
+        {
+            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
+            try
+            {
+                sqlConnection.Open();
+                string sentence = "SELECT * FROM CONTACT WHERE SAK_CONTACT = " + sak_contact.ToString();
+                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
+                OdbcDataReader reader = query.ExecuteReader();
+                while (reader.Read())
+                {
+                    _sak = Convert.ToInt32(reader["SAK_CONTACT"]);
+                    _name = reader["NAME"].ToString();
+                    _address = reader["ADDRESS"].ToString();
+                    _RFC = reader["RFC"].ToString();
+                    _NSS = reader["NSS"].ToString();
+                    _phone = reader["PHONE"].ToString();
+                    _email = reader["EMAIL"].ToString();
+                }
+                reader.Close();
+                query.Dispose();
+                sqlConnection.Close();
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            
         }
 
         #endregion

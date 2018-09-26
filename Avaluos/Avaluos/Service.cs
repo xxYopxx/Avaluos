@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace Avaluos
 {
-    class Service
+    abstract class Service
     {
-        #region Private Members
+        #region Public properties
 
-        int _amountPaid;
-        int _amountTotal;
-
+        public abstract int AmountPaid { get; set; }
+        public abstract int AmountTotal { get; set; }
+        public abstract Contact Client { get; set; }
+        public abstract DateTime DateStart { get; set; }
+        public abstract DateTime DateEnd { get; set; }
 
         #endregion
-
 
     }
 }

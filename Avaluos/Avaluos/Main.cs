@@ -108,6 +108,11 @@ namespace Avaluos
                 }
             }
         }
+
+        public void UpdateStatus(string status)
+        {
+            lblCurrentStatus.Text = status;
+        }
     }
 
     class WindowManager

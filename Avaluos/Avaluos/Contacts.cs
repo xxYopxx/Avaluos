@@ -15,7 +15,8 @@ namespace Avaluos
         #region Private members
 
         int _sak;
-        bool _isNew;
+        Contact _currentContact;
+
         #endregion
 
         #region Public properties
@@ -32,14 +33,14 @@ namespace Avaluos
 
         public Contacts()
         {
-            _isNew = true;
+            _currentContact = new Contact();
             InitializeComponent();
         }
 
         public Contacts(int sak)
         {
-            _isNew = false;
             _sak = sak;
+            _currentContact = new Contact(_sak);
             InitializeComponent();
         }
 
@@ -47,18 +48,49 @@ namespace Avaluos
 
         #region Data Operations
 
-        public void LoadContactData()
+        private void LoadContactData()
         {
-
+            txtID.Text = _currentContact.SAK_Contact.ToString();
+            txtName.Text = _currentContact.Name;
+            txtAddress.Text = _currentContact.Address;
+            txtRFC.Text = _currentContact.RFC;
+            txtNSS.Text = _currentContact.NSS;
+            txtPhone.Text = _currentContact.Phone;
+            txtEmail.Text = _currentContact.Email;
         }
 
-        public void SaveContactData()
+        private void SaveContactData()
         {
+            _currentContact.Name = txtName.Text;
+            _currentContact.Address = txtAddress.Text;
+            _currentContact.RFC = txtRFC.Text;
+            _currentContact.NSS = txtNSS.Text;
+            _currentContact.Phone = txtPhone.Text;
+            _currentContact.Email = txtEmail.Text;
+            if (_currentContact.Save())
+            {
+                (Parent.Parent as Main).UpdateStatus("Guardado!");
+            }
+            txtID.Text = _currentContact.SAK_Contact.ToString();
+        }
 
+        private void ClearFields()
+        {
+            txtID.Text = string.Empty;
+            txtName.Text = string.Empty;
+            txtAddress.Text = string.Empty;
+            txtRFC.Text = string.Empty;
+            txtNSS.Text = string.Empty;
+            txtPhone.Text = string.Empty;
+            txtEmail.Text = string.Empty;
         }
 
         #endregion
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveContactData();
+        }
 
     }
 }

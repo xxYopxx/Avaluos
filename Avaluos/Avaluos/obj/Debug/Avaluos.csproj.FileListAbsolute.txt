@@ -46,3 +46,19 @@ D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.GenerateResourc
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.CoreCompileInputs.cache
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.exe
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.pdb
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\bin\Debug\Avaluos.exe.config
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\bin\Debug\Avaluos.exe
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\bin\Debug\Avaluos.pdb
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csprojAssemblyReference.cache
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Configuration.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Contacts.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Main.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Properties.Resources.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcAC.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcEstimate.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcMAI.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcPrint.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.GenerateResource.cache
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.CoreCompileInputs.cache
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.exe
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.pdb

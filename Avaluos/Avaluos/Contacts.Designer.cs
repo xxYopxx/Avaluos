@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -70,6 +72,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contactos";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(502, 318);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtEmail
             // 
@@ -180,6 +192,7 @@
             // 
             this.txtID.Location = new System.Drawing.Point(52, 34);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(92, 20);
             this.txtID.TabIndex = 0;
             // 
@@ -217,5 +230,6 @@
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button btnSave;
     }
 }

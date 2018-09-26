@@ -32,7 +32,7 @@ namespace Avaluos
         {
             Properties.Settings.Default.sqliteFile = txtDBLocation.Text;
             Properties.Settings.Default.documentRepo = txtDocumentsLocation.Text;
-            Properties.Settings.Default.sqliteConnection = "Data Source=" + txtDBLocation.Text + ";Version=3;";
+            Properties.Settings.Default.sqliteConnection = "DRIVER=SQLite3 ODBC Driver;Database=" + txtDBLocation.Text + ";";
             Properties.Settings.Default.Save();
         }
 

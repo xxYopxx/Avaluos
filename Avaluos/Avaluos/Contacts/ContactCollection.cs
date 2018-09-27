@@ -29,7 +29,8 @@ namespace Avaluos
 
         public ContactCollection()
         {
-
+            _parameters = new Dictionary<string, object>();
+            _collection = new List<Contact>();
         }
 
         #endregion
@@ -49,10 +50,12 @@ namespace Avaluos
         public bool Search()
         {
             bool result = false;
+            _collection = new List<Contact>();
             sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
             try
             {
                 sqlConnection.Open();
+                OdbcCommand query = new OdbcCommand();
                 string sentence = "SELECT SAK_CONTACT FROM CONTACTS WHERE ";
                 foreach(KeyValuePair<string,object> parameter in _parameters)
                 {
@@ -74,10 +77,12 @@ namespace Avaluos
                             filter.OdbcType = OdbcType.Int;
                             break;
                     }
+                    query.Parameters.Add(filter);
                     sentence += parameter.Key + " like ? AND ";
                 }
                 sentence = sentence.Substring(0, sentence.Length - 4);
-                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
+                query.Connection = sqlConnection;
+                query.CommandText = sentence;
                 OdbcDataReader reader = query.ExecuteReader();
                 if (reader.HasRows)
                 {

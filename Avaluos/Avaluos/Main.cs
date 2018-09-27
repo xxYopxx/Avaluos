@@ -16,9 +16,15 @@ namespace Avaluos
         const string CONTACTS_NODE = "contactsNode";
         const string SERVICES_TEXT = "Servicios";
         const string CONTACTS_TEXT = "Contactos";
-        enum Window { Contacts, svcAC, svcEstimate, svcMAI, svcPrint };
-        WindowManager openedWindows;
 
+        #region Private members
+
+        WindowManager openedWindows;
+        int _selectedContact;
+        int _selectedService;
+
+        #endregion
+        
         #region Initialization
 
         public Main()
@@ -41,6 +47,8 @@ namespace Avaluos
 
         #endregion
 
+        #region Window Management
+
         private void subApplication_Settings_Click(object sender, EventArgs e)
         {
             Configuration window = new Configuration();
@@ -60,6 +68,18 @@ namespace Avaluos
                     currentWindow = new Contacts();
                     index = -1;
                     item.Text = "Nuevo Contacto";
+                    isContact = true;
+                    break;
+                case "subContacts_Search":
+                    currentWindow = new ContactSearch();
+                    index = -11;
+                    item.Text = "Buscar";
+                    isContact = true;
+                    break;
+                case "OpenContact":
+                    currentWindow = new Contacts(_selectedContact);
+                    index = _selectedContact;
+                    item.Text = (currentWindow as Contacts).ContactName;
                     isContact = true;
                     break;
                 case "subServices_New_AC":
@@ -98,6 +118,7 @@ namespace Avaluos
                         treeCurrent.Nodes[CONTACTS_NODE].Nodes.Add(item);
                     else
                         treeCurrent.Nodes[SERVICES_NODE].Nodes.Add(item);
+                    treeCurrent.ExpandAll();
                 }
                 else
                 {
@@ -109,10 +130,40 @@ namespace Avaluos
             }
         }
 
-        public void UpdateStatus(string status)
+        private void treeCurrent_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeCurrent.SelectedNode != treeCurrent.Nodes[CONTACTS_NODE] && treeCurrent.SelectedNode != treeCurrent.Nodes[SERVICES_NODE])
+            {
+                pnlCurrent.Controls.Clear();
+                Form currentWindow = (Form)openedWindows.GetWindow(Convert.ToInt32(treeCurrent.SelectedNode.Name));
+                pnlCurrent.Controls.Add(currentWindow);
+                currentWindow.Show();
+            }
+        }
+
+        #endregion
+
+        #region External Modification
+
+        internal void UpdateStatus(string status)
         {
             lblCurrentStatus.Text = status;
         }
+
+        internal void OpenContact(int sak)
+        {
+            _selectedContact = sak;
+            ToolStripMenuItem dummy = new ToolStripMenuItem();
+            dummy.Name = "OpenContact";
+            DisplayWindow(dummy, null);
+        }
+
+        internal void OpenService(int sak)
+        {
+            _selectedService = sak;
+        }
+
+        #endregion
     }
 
     class WindowManager

@@ -56,12 +56,25 @@ namespace Avaluos
             {
                 foreach(Contact item in collection.Results)
                 {
-
+                    ListViewItem row = new ListViewItem();
+                    row.Text = item.Name;
+                    row.SubItems.Add(item.Address);
+                    row.SubItems.Add(item.RFC);
+                    row.SubItems.Add(item.NSS);
+                    row.SubItems.Add(item.Phone);
+                    row.SubItems.Add(item.Email);
+                    row.Tag = item.SAK_Contact;
+                    listResults.Items.Add(row);
                 }
             }
-                
         }
 
         #endregion
+
+        private void listResults_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (listResults.SelectedItems.Count > 0)
+                (Parent.Parent as Main).OpenContact(Convert.ToInt32(listResults.SelectedItems[0].Tag));
+        }
     }
 }

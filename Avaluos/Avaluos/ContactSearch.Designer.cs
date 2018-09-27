@@ -68,18 +68,21 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(713, 358);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(951, 441);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de Contactos";
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(632, 61);
+            this.btnClear.Location = new System.Drawing.Point(843, 75);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(100, 28);
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Limpiar";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -87,9 +90,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(632, 32);
+            this.btnSearch.Location = new System.Drawing.Point(843, 39);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -106,12 +110,14 @@
             this.listResults.GridLines = true;
             this.listResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listResults.HideSelection = false;
-            this.listResults.Location = new System.Drawing.Point(9, 124);
+            this.listResults.Location = new System.Drawing.Point(12, 153);
+            this.listResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listResults.Name = "listResults";
-            this.listResults.Size = new System.Drawing.Size(698, 228);
+            this.listResults.Size = new System.Drawing.Size(929, 280);
             this.listResults.TabIndex = 12;
             this.listResults.UseCompatibleStateImageBehavior = false;
             this.listResults.View = System.Windows.Forms.View.Details;
+            this.listResults.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listResults_ItemSelectionChanged);
             // 
             // colName
             // 
@@ -135,108 +141,124 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(380, 84);
+            this.txtEmail.Location = new System.Drawing.Point(507, 103);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 20);
+            this.txtEmail.Size = new System.Drawing.Size(240, 22);
             this.txtEmail.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(322, 87);
+            this.label6.Location = new System.Drawing.Point(429, 107);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 10;
             this.label6.Text = "Email";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(380, 58);
+            this.txtPhone.Location = new System.Drawing.Point(507, 71);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(181, 20);
+            this.txtPhone.Size = new System.Drawing.Size(240, 22);
             this.txtPhone.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(322, 61);
+            this.label5.Location = new System.Drawing.Point(429, 75);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Telefono";
             // 
             // txtNSS
             // 
-            this.txtNSS.Location = new System.Drawing.Point(380, 32);
+            this.txtNSS.Location = new System.Drawing.Point(507, 39);
+            this.txtNSS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNSS.Name = "txtNSS";
-            this.txtNSS.Size = new System.Drawing.Size(181, 20);
+            this.txtNSS.Size = new System.Drawing.Size(240, 22);
             this.txtNSS.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(322, 35);
+            this.label4.Location = new System.Drawing.Point(429, 43);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.Size = new System.Drawing.Size(36, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "NSS";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 87);
+            this.label3.Location = new System.Drawing.Point(8, 107);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.Size = new System.Drawing.Size(35, 17);
             this.label3.TabIndex = 5;
             this.label3.Text = "RFC";
             // 
             // txtRFC
             // 
-            this.txtRFC.Location = new System.Drawing.Point(64, 84);
+            this.txtRFC.Location = new System.Drawing.Point(85, 103);
+            this.txtRFC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRFC.Name = "txtRFC";
-            this.txtRFC.Size = new System.Drawing.Size(181, 20);
+            this.txtRFC.Size = new System.Drawing.Size(240, 22);
             this.txtRFC.TabIndex = 4;
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(64, 58);
+            this.txtAddress.Location = new System.Drawing.Point(85, 71);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(233, 20);
+            this.txtAddress.Size = new System.Drawing.Size(309, 22);
             this.txtAddress.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Location = new System.Drawing.Point(8, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Direccion";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(64, 32);
+            this.txtName.Location = new System.Drawing.Point(85, 39);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(181, 20);
+            this.txtName.Size = new System.Drawing.Size(240, 22);
             this.txtName.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Location = new System.Drawing.Point(8, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
             // ContactSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 382);
+            this.ClientSize = new System.Drawing.Size(983, 470);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ContactSearch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ContactSearch";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

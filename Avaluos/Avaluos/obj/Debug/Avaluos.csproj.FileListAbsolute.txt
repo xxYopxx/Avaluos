@@ -62,3 +62,4 @@ C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.GenerateRes
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.CoreCompileInputs.cache
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.exe
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.pdb
+D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ContactSearch.resources

@@ -159,9 +159,33 @@ namespace Avaluos
             return result;
         }
 
-        private void ModifyContact()
+        private bool ModifyContact()
         {
+            bool result = false;
+            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
+            try
+            {
+                GetLastID();
+                sqlConnection.Open();
+                string sentence = "UPDATE CONTACTS SET NAME = ?, ADDRESS = ?, RFC = ?, NSS = ?, PHONE = ?, EMAIL = ? WHERE SAK_CONTACT = ?";
+                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
+                query.Parameters.Add(CreateParameter("@NAME", _name, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@ADDRESS", _address, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@RFC", _RFC, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@NSS", _NSS, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@PHONE", _phone, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@EMAIL", _email, OdbcType.Text));
+                query.Parameters.Add(CreateParameter("@SAK", _sak, OdbcType.Int));
+                result = query.ExecuteNonQuery() == 1;
+                query.Dispose();
+                sqlConnection.Close();
 
+            }
+            catch (Exception ex)
+            {
+                // Log errors
+            }
+            return result;
         }
 
         private OdbcParameter CreateParameter(string name, object value, OdbcType type)
@@ -179,7 +203,7 @@ namespace Avaluos
             try
             {
                 sqlConnection.Open();
-                string sentence = "SELECT * FROM CONTACT WHERE SAK_CONTACT = " + _sak.ToString();
+                string sentence = "SELECT * FROM CONTACTS WHERE SAK_CONTACT = " + _sak.ToString();
                 OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
                 OdbcDataReader reader = query.ExecuteReader();
                 while (reader.Read())

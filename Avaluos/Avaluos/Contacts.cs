@@ -27,6 +27,11 @@ namespace Avaluos
             set { _sak = value; }
         }
 
+        public string ContactName
+        {
+            get { return _currentContact.Name; }
+        }
+
         #endregion
 
         #region Constructor
@@ -42,11 +47,26 @@ namespace Avaluos
             _sak = sak;
             _currentContact = new Contact(_sak);
             InitializeComponent();
+            LoadContactData();
+        }
+
+        #endregion
+
+        #region Initialization
+
+        private void Contacts_Load(object sender, EventArgs e)
+        {
+
         }
 
         #endregion
 
         #region Data Operations
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveContactData();
+        }
 
         private void LoadContactData()
         {
@@ -86,11 +106,6 @@ namespace Avaluos
         }
 
         #endregion
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SaveContactData();
-        }
-
+        
     }
 }

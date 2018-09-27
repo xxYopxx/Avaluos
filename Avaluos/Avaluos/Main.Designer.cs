@@ -60,8 +60,8 @@
             this.menuContacts});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1163, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,20 +71,20 @@
             this.subApplication_Settings,
             this.subApplication_Exit});
             this.menuApplication.Name = "menuApplication";
-            this.menuApplication.Size = new System.Drawing.Size(91, 24);
+            this.menuApplication.Size = new System.Drawing.Size(75, 20);
             this.menuApplication.Text = "Aplicacion";
             // 
             // subApplication_Settings
             // 
             this.subApplication_Settings.Name = "subApplication_Settings";
-            this.subApplication_Settings.Size = new System.Drawing.Size(177, 26);
+            this.subApplication_Settings.Size = new System.Drawing.Size(150, 22);
             this.subApplication_Settings.Text = "Configuracion";
             this.subApplication_Settings.Click += new System.EventHandler(this.subApplication_Settings_Click);
             // 
             // subApplication_Exit
             // 
             this.subApplication_Exit.Name = "subApplication_Exit";
-            this.subApplication_Exit.Size = new System.Drawing.Size(177, 26);
+            this.subApplication_Exit.Size = new System.Drawing.Size(150, 22);
             this.subApplication_Exit.Text = "Salir";
             // 
             // menuServices
@@ -93,7 +93,7 @@
             this.subServices_New,
             this.subServices_Search});
             this.menuServices.Name = "menuServices";
-            this.menuServices.Size = new System.Drawing.Size(79, 24);
+            this.menuServices.Size = new System.Drawing.Size(65, 20);
             this.menuServices.Text = "Servicios";
             // 
             // subServices_New
@@ -104,41 +104,41 @@
             this.subServices_New_MAI,
             this.subServices_New_Print});
             this.subServices_New.Name = "subServices_New";
-            this.subServices_New.Size = new System.Drawing.Size(127, 26);
+            this.subServices_New.Size = new System.Drawing.Size(109, 22);
             this.subServices_New.Text = "Nuevo";
             // 
             // subServices_New_AC
             // 
             this.subServices_New_AC.Name = "subServices_New_AC";
-            this.subServices_New_AC.Size = new System.Drawing.Size(192, 26);
+            this.subServices_New_AC.Size = new System.Drawing.Size(160, 22);
             this.subServices_New_AC.Text = "Avaluo Catastral";
             this.subServices_New_AC.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subServices_New_Estimate
             // 
             this.subServices_New_Estimate.Name = "subServices_New_Estimate";
-            this.subServices_New_Estimate.Size = new System.Drawing.Size(192, 26);
+            this.subServices_New_Estimate.Size = new System.Drawing.Size(160, 22);
             this.subServices_New_Estimate.Text = "Estimacion";
             this.subServices_New_Estimate.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subServices_New_MAI
             // 
             this.subServices_New_MAI.Name = "subServices_New_MAI";
-            this.subServices_New_MAI.Size = new System.Drawing.Size(192, 26);
+            this.subServices_New_MAI.Size = new System.Drawing.Size(160, 22);
             this.subServices_New_MAI.Text = "MAI";
             this.subServices_New_MAI.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subServices_New_Print
             // 
             this.subServices_New_Print.Name = "subServices_New_Print";
-            this.subServices_New_Print.Size = new System.Drawing.Size(192, 26);
+            this.subServices_New_Print.Size = new System.Drawing.Size(160, 22);
             this.subServices_New_Print.Text = "Plano";
             this.subServices_New_Print.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subServices_Search
             // 
             this.subServices_Search.Name = "subServices_Search";
-            this.subServices_Search.Size = new System.Drawing.Size(127, 26);
+            this.subServices_Search.Size = new System.Drawing.Size(109, 22);
             this.subServices_Search.Text = "Buscar";
             // 
             // menuContacts
@@ -147,40 +147,40 @@
             this.subContacts_New,
             this.subContacts_Search});
             this.menuContacts.Name = "menuContacts";
-            this.menuContacts.Size = new System.Drawing.Size(87, 24);
+            this.menuContacts.Size = new System.Drawing.Size(73, 20);
             this.menuContacts.Text = "Contactos";
             // 
             // subContacts_New
             // 
             this.subContacts_New.Name = "subContacts_New";
-            this.subContacts_New.Size = new System.Drawing.Size(216, 26);
+            this.subContacts_New.Size = new System.Drawing.Size(109, 22);
             this.subContacts_New.Text = "Nuevo";
             this.subContacts_New.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subContacts_Search
             // 
             this.subContacts_Search.Name = "subContacts_Search";
-            this.subContacts_Search.Size = new System.Drawing.Size(216, 26);
+            this.subContacts_Search.Size = new System.Drawing.Size(109, 22);
             this.subContacts_Search.Text = "Buscar";
             this.subContacts_Search.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // treeCurrent
             // 
             this.treeCurrent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeCurrent.Location = new System.Drawing.Point(0, 28);
-            this.treeCurrent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.treeCurrent.Location = new System.Drawing.Point(0, 24);
+            this.treeCurrent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.treeCurrent.Name = "treeCurrent";
-            this.treeCurrent.Size = new System.Drawing.Size(184, 498);
+            this.treeCurrent.Size = new System.Drawing.Size(139, 472);
             this.treeCurrent.TabIndex = 1;
             this.treeCurrent.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCurrent_AfterSelect);
             // 
             // pnlCurrent
             // 
             this.pnlCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCurrent.Location = new System.Drawing.Point(184, 28);
-            this.pnlCurrent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlCurrent.Location = new System.Drawing.Point(139, 24);
+            this.pnlCurrent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlCurrent.Name = "pnlCurrent";
-            this.pnlCurrent.Size = new System.Drawing.Size(979, 498);
+            this.pnlCurrent.Size = new System.Drawing.Size(920, 472);
             this.pnlCurrent.TabIndex = 2;
             // 
             // barStatus
@@ -189,36 +189,35 @@
             this.barStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.lblCurrentStatus});
-            this.barStatus.Location = new System.Drawing.Point(184, 501);
+            this.barStatus.Location = new System.Drawing.Point(139, 474);
             this.barStatus.Name = "barStatus";
-            this.barStatus.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.barStatus.Size = new System.Drawing.Size(979, 25);
+            this.barStatus.Size = new System.Drawing.Size(920, 22);
             this.barStatus.TabIndex = 3;
             this.barStatus.Text = "Barra de estado";
             // 
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(56, 20);
+            this.lblStatus.Size = new System.Drawing.Size(45, 17);
             this.lblStatus.Text = "Status: ";
             // 
             // lblCurrentStatus
             // 
             this.lblCurrentStatus.Name = "lblCurrentStatus";
-            this.lblCurrentStatus.Size = new System.Drawing.Size(40, 20);
+            this.lblCurrentStatus.Size = new System.Drawing.Size(32, 17);
             this.lblCurrentStatus.Text = "Listo";
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 526);
+            this.ClientSize = new System.Drawing.Size(1059, 496);
             this.Controls.Add(this.barStatus);
             this.Controls.Add(this.pnlCurrent);
             this.Controls.Add(this.treeCurrent);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

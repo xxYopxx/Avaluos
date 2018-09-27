@@ -16,6 +16,8 @@ namespace Avaluos
         public abstract DateTime DateStart { get; set; }
         public abstract DateTime DateEnd { get; set; }
 
+        
+
         #endregion
 
     }

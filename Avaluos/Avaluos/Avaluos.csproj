@@ -53,8 +53,8 @@
     <Compile Include="ContactSearch.Designer.cs">
       <DependentUpon>ContactSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Document.cs" />
-    <Compile Include="DocumentCollection.cs" />
+    <Compile Include="Documents\Document.cs" />
+    <Compile Include="Documents\DocumentCollection.cs" />
     <Compile Include="FileCabinet.cs" />
     <Compile Include="Interfaces\SQLiteLink.cs" />
     <Compile Include="SearchDocument.cs">

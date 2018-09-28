@@ -64,3 +64,5 @@ C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.exe
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.pdb
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ContactSearch.resources
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.SearchDocument.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ContactSearch.resources
+C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.SearchDocument.resources

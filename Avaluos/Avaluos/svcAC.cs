@@ -12,10 +12,20 @@ namespace Avaluos
 {
     public partial class svcAC : Form
     {
+        #region Private members
+
+
+
+        #endregion
+
+        #region Constructor
+
         public svcAC()
         {
             InitializeComponent();
         }
+
+        #endregion
 
         #region Initialization
 
@@ -33,9 +43,27 @@ namespace Avaluos
             SearchDocument window = new SearchDocument();
             
         }
-
+        
         #endregion
 
+        private void btnOpenFolder_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void Save()
+        {
+
+        }
+
+        private void ClearFields()
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
     }
 }

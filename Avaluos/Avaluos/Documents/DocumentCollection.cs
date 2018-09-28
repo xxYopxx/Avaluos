@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Odbc;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,7 @@ namespace Avaluos
         #region Private members
 
         int _serviceSak;
-        string _serviceType;
-        int _baseDirectory;
+        string _baseDirectory;
         List<Document> _collection;
         OdbcConnection _sqlConnection;
 
@@ -33,6 +33,7 @@ namespace Avaluos
         public DocumentCollection(int sak)
         {
             _serviceSak = sak;
+            _baseDirectory = Properties.Settings.Default.documentRepo + "\\Avaluos\\" + _serviceSak.ToString();
             _collection = new List<Document>();
         }
 
@@ -42,24 +43,17 @@ namespace Avaluos
 
         private void RetrieveDocuments()
         {
-            // Get list of documents for the service
-            // Instantiate Document for each item
-            // Add Document to the collection
-        }
-
-        private void GetDocumentList()
-        {
-            _sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
-            try
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "SELECT SAK_DOCUMENT FROM SERVICE_DOCS WHERE SAK_SERVICE = ?";
+            db.AddParameter("@SAK", _serviceSak, OdbcType.Int);
+            DataTable results = db.ExecuteReader();
+            if (results != null && results.Rows.Count > 0)
             {
-                _sqlConnection.Open();
-                string sentence = "SELECT * FROM SERVICE_DOCS WHERE SAK_SERVICE = ?";
-                OdbcCommand query = new OdbcCommand(sentence, _sqlConnection);
-                //query.Parameters.Add()
-            }
-            catch(Exception ex)
-            {
-
+                foreach (DataRow row in results.Rows)
+                {
+                    Document doc = new Document(Convert.ToInt32(row["SAK_DOCUMENT"]));
+                    _collection.Add(doc);
+                }
             }
         }
 

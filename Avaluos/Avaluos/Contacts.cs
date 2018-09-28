@@ -15,6 +15,7 @@ namespace Avaluos
         #region Private members
 
         int _sak;
+        bool _isNew = false;
         Contact _currentContact;
 
         #endregion
@@ -38,6 +39,7 @@ namespace Avaluos
 
         public Contacts()
         {
+            _isNew = true;
             _currentContact = new Contact();
             InitializeComponent();
         }
@@ -91,7 +93,12 @@ namespace Avaluos
             {
                 (Parent.Parent as Main).UpdateStatus("Guardado!");
             }
-            txtID.Text = _currentContact.SAK_Contact.ToString();
+            else
+            {
+                (Parent.Parent as Main).UpdateStatus("Error al guardar - Ver log");
+            }
+            if (_isNew)
+                ClearFields();
         }
 
         private void ClearFields()

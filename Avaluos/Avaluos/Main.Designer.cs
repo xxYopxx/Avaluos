@@ -167,8 +167,9 @@
             // treeCurrent
             // 
             this.treeCurrent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeCurrent.HideSelection = false;
             this.treeCurrent.Location = new System.Drawing.Point(0, 24);
-            this.treeCurrent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeCurrent.Margin = new System.Windows.Forms.Padding(2);
             this.treeCurrent.Name = "treeCurrent";
             this.treeCurrent.Size = new System.Drawing.Size(139, 472);
             this.treeCurrent.TabIndex = 1;
@@ -178,7 +179,7 @@
             // 
             this.pnlCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlCurrent.Location = new System.Drawing.Point(139, 24);
-            this.pnlCurrent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlCurrent.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCurrent.Name = "pnlCurrent";
             this.pnlCurrent.Size = new System.Drawing.Size(920, 472);
             this.pnlCurrent.TabIndex = 2;
@@ -217,7 +218,7 @@
             this.Controls.Add(this.treeCurrent);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

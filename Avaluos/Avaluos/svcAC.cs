@@ -31,7 +31,7 @@ namespace Avaluos
         private void btnAddDocument_Click(object sender, EventArgs e)
         {
             SearchDocument window = new SearchDocument();
-            window
+            
         }
 
         #endregion

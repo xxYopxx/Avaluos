@@ -80,7 +80,10 @@ namespace Avaluos
                     query.Parameters.Add(filter);
                     sentence += parameter.Key + " like ? AND ";
                 }
-                sentence = sentence.Substring(0, sentence.Length - 4);
+                if (_parameters.Count > 0)
+                    sentence = sentence.Substring(0, sentence.Length - 4);
+                else
+                    sentence = sentence.Replace("WHERE ", "");
                 query.Connection = sqlConnection;
                 query.CommandText = sentence;
                 OdbcDataReader reader = query.ExecuteReader();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Odbc;
 using System.Linq;
 using System.Text;
@@ -133,128 +134,67 @@ namespace Avaluos
         private bool AddContact()
         {
             bool result = false;
-            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
-            try
-            {
-                GetLastID();
-                sqlConnection.Open();
-                string sentence = "INSERT INTO CONTACTS(SAK_CONTACT, NAME, ADDRESS, RFC,NSS,PHONE,EMAIL) VALUES(?, ?, ?, ?, ?, ?, ?);";
-                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
-                query.Parameters.Add(CreateParameter("@SAK", _sak, OdbcType.Int));
-                query.Parameters.Add(CreateParameter("@NAME", _name, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@ADDRESS", _address, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@RFC", _RFC, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@NSS", _NSS, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@PHONE", _phone, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@EMAIL", _email, OdbcType.Text));
-                result = query.ExecuteNonQuery() == 1;
-                query.Dispose();
-                sqlConnection.Close();
-                
-            }
-            catch(Exception ex)
-            {
-                // Log errors
-            }
+            GetLastID();
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "INSERT INTO CONTACTS(SAK_CONTACT, NAME, ADDRESS, RFC,NSS,PHONE,EMAIL) VALUES(?, ?, ?, ?, ?, ?, ?);";
+            db.AddParameter("@SAK", _sak, OdbcType.Int);
+            db.AddParameter("@NAME", _name, OdbcType.Text);
+            db.AddParameter("@ADDRESS", _address, OdbcType.Text);
+            db.AddParameter("@RFC", _RFC, OdbcType.Text);
+            db.AddParameter("@NSS", _NSS, OdbcType.Text);
+            db.AddParameter("@PHONE", _phone, OdbcType.Text);
+            db.AddParameter("@EMAIL", _email, OdbcType.Text);
+            result = db.ExecuteCommand() == 1;
             return result;
         }
 
         private bool ModifyContact()
         {
             bool result = false;
-            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
-            try
-            {
-                GetLastID();
-                sqlConnection.Open();
-                string sentence = "UPDATE CONTACTS SET NAME = ?, ADDRESS = ?, RFC = ?, NSS = ?, PHONE = ?, EMAIL = ? WHERE SAK_CONTACT = ?";
-                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
-                query.Parameters.Add(CreateParameter("@NAME", _name, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@ADDRESS", _address, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@RFC", _RFC, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@NSS", _NSS, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@PHONE", _phone, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@EMAIL", _email, OdbcType.Text));
-                query.Parameters.Add(CreateParameter("@SAK", _sak, OdbcType.Int));
-                result = query.ExecuteNonQuery() == 1;
-                query.Dispose();
-                sqlConnection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                // Log errors
-            }
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "UPDATE CONTACTS SET NAME = ?, ADDRESS = ?, RFC = ?, NSS = ?, PHONE = ?, EMAIL = ? WHERE SAK_CONTACT = ?";
+            db.AddParameter("@NAME", _name, OdbcType.Text);
+            db.AddParameter("@ADDRESS", _address, OdbcType.Text);
+            db.AddParameter("@RFC", _RFC, OdbcType.Text);
+            db.AddParameter("@NSS", _NSS, OdbcType.Text);
+            db.AddParameter("@PHONE", _phone, OdbcType.Text);
+            db.AddParameter("@EMAIL", _email, OdbcType.Text);
+            result = db.ExecuteCommand() == 1;
             return result;
         }
-
-        private OdbcParameter CreateParameter(string name, object value, OdbcType type)
-        {
-            OdbcParameter parameter = new OdbcParameter();
-            parameter.ParameterName = name;
-            parameter.OdbcType = type;
-            parameter.Value = value;
-            return parameter;
-        }
-
+        
         private void LoadContact()
         {
-            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
-            try
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "SELECT * FROM CONTACTS WHERE SAK_CONTACT = ?";
+            db.AddParameter("@SAK", _sak, OdbcType.Int);
+            DataTable result = db.ExecuteReader();
+            if (result != null)
             {
-                sqlConnection.Open();
-                string sentence = "SELECT * FROM CONTACTS WHERE SAK_CONTACT = " + _sak.ToString();
-                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
-                OdbcDataReader reader = query.ExecuteReader();
-                while (reader.Read())
+                foreach (DataRow row in result.Rows)
                 {
-                    _sak = Convert.ToInt32(reader["SAK_CONTACT"]);
-                    _name = reader["NAME"].ToString();
-                    _address = reader["ADDRESS"].ToString();
-                    _RFC = reader["RFC"].ToString();
-                    _NSS = reader["NSS"].ToString();
-                    _phone = reader["PHONE"].ToString();
-                    _email = reader["EMAIL"].ToString();
+                    _sak = Convert.ToInt32(row["SAK_CONTACT"]);
+                    _name = row["NAME"].ToString();
+                    _address = row["ADDRESS"].ToString();
+                    _RFC = row["RFC"].ToString();
+                    _NSS = row["NSS"].ToString();
+                    _phone = row["PHONE"].ToString();
+                    _email = row["EMAIL"].ToString();
                 }
-                reader.Close();
-                query.Dispose();
-                sqlConnection.Close();
             }
-            catch(Exception ex)
-            {
-                // Log errors
-            }
-            
         }
 
         private void GetLastID()
         {
-            sqlConnection = new OdbcConnection(Properties.Settings.Default.sqliteConnection);
-            try
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "SELECT MAX(SAK_CONTACT) as LAST FROM CONTACTS";
+            DataTable result = db.ExecuteReader();
+            if (result != null)
             {
-                sqlConnection.Open();
-                string sentence = "SELECT MAX(SAK_CONTACT) as LAST FROM CONTACTS";
-                OdbcCommand query = new OdbcCommand(sentence, sqlConnection);
-                OdbcDataReader reader = query.ExecuteReader();
-                if (reader.HasRows)
+                foreach(DataRow row in result.Rows)
                 {
-                    while (reader.Read())
-                    {
-                        _sak = reader["LAST"] != DBNull.Value ? Convert.ToInt32(reader["LAST"]) : 1;
-                    }
+                    _sak = row["LAST"] != DBNull.Value ? Convert.ToInt32(row["LAST"]) + 1 : 1;
                 }
-                else
-                {
-                    _sak = 1;
-                }
-                
-                reader.Close();
-                query.Dispose();
-                sqlConnection.Close();
-            }
-            catch (Exception ex)
-            {
-                // Log errors
             }
         }
 

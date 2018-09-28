@@ -56,6 +56,7 @@
     <Compile Include="Document.cs" />
     <Compile Include="DocumentCollection.cs" />
     <Compile Include="FileCabinet.cs" />
+    <Compile Include="Interfaces\SQLiteLink.cs" />
     <Compile Include="SearchDocument.cs">
       <SubType>Form</SubType>
     </Compile>

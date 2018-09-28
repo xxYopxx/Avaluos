@@ -72,8 +72,8 @@ namespace Avaluos
                     break;
                 case "subContacts_Search":
                     currentWindow = new ContactSearch();
-                    index = -11;
-                    item.Text = "Buscar";
+                    index = -6;
+                    item.Text = "Buscar Contacto";
                     isContact = true;
                     break;
                 case "OpenContact":
@@ -110,22 +110,21 @@ namespace Avaluos
                 if (!openedWindows.Exists(index))
                 {
                     openedWindows.Add(currentWindow, index);
-                    pnlCurrent.Controls.Clear();
                     pnlCurrent.Controls.Add(currentWindow);
-                    currentWindow.Show();
                     item.Name = index.ToString();
                     if (isContact)
                         treeCurrent.Nodes[CONTACTS_NODE].Nodes.Add(item);
                     else
                         treeCurrent.Nodes[SERVICES_NODE].Nodes.Add(item);
                     treeCurrent.ExpandAll();
+                    treeCurrent.SelectedNode = item;
                 }
                 else
                 {
-                    pnlCurrent.Controls.Clear();
-                    currentWindow = (Form)openedWindows.GetWindow(index);
-                    pnlCurrent.Controls.Add(currentWindow);
-                    currentWindow.Show();
+                    if (isContact)
+                        treeCurrent.SelectedNode = treeCurrent.Nodes[CONTACTS_NODE].Nodes[index.ToString()];
+                    else
+                        treeCurrent.SelectedNode = treeCurrent.Nodes[SERVICES_NODE].Nodes[index.ToString()];
                 }
             }
         }

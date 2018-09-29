@@ -1,9 +1,12 @@
 Lista de Estatus
-	Creada
-	En espera de documentacion
-	En espera de pago
-	Entregada
-	
+1) Solicitud
+2) En proceso
+-) Sin Documentos
+-) Detenido
+-) Pago Pendiente
+3) Aprobado
+4) Entregado
+
 Lista de Documentacion
 	Planos
 	Fotografias

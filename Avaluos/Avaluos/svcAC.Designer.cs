@@ -29,9 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dteEnd = new System.Windows.Forms.DateTimePicker();
-            this.dteStart = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.ddlServiceType = new System.Windows.Forms.ComboBox();
+            this.btnPayment = new System.Windows.Forms.Button();
+            this.txtNewPayment = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.listPayments = new System.Windows.Forms.ListView();
+            this.colAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label4 = new System.Windows.Forms.Label();
+            this.dteVisit = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpenFolder = new System.Windows.Forms.Button();
@@ -44,7 +51,6 @@
             this.txtToPay = new System.Windows.Forms.TextBox();
             this.ddlContact_Seller = new System.Windows.Forms.ComboBox();
             this.txtAmountTotal = new System.Windows.Forms.TextBox();
-            this.txtAmountPaid = new System.Windows.Forms.TextBox();
             this.ddlStatus = new System.Windows.Forms.ComboBox();
             this.ddlContact_Client = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,7 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,9 +67,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dteEnd);
-            this.groupBox1.Controls.Add(this.dteStart);
             this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.ddlServiceType);
+            this.groupBox1.Controls.Add(this.btnPayment);
+            this.groupBox1.Controls.Add(this.txtNewPayment);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.listPayments);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.dteVisit);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnOpenFolder);
@@ -75,7 +85,6 @@
             this.groupBox1.Controls.Add(this.txtToPay);
             this.groupBox1.Controls.Add(this.ddlContact_Seller);
             this.groupBox1.Controls.Add(this.txtAmountTotal);
-            this.groupBox1.Controls.Add(this.txtAmountPaid);
             this.groupBox1.Controls.Add(this.ddlStatus);
             this.groupBox1.Controls.Add(this.ddlContact_Client);
             this.groupBox1.Controls.Add(this.label9);
@@ -83,7 +92,6 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -97,37 +105,103 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Avaluo Catastral";
             // 
-            // dteEnd
-            // 
-            this.dteEnd.Location = new System.Drawing.Point(544, 87);
-            this.dteEnd.Name = "dteEnd";
-            this.dteEnd.Size = new System.Drawing.Size(200, 20);
-            this.dteEnd.TabIndex = 25;
-            // 
-            // dteStart
-            // 
-            this.dteStart.Location = new System.Drawing.Point(527, 60);
-            this.dteStart.Name = "dteStart";
-            this.dteStart.Size = new System.Drawing.Size(200, 20);
-            this.dteStart.TabIndex = 24;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(425, 90);
+            this.label11.Location = new System.Drawing.Point(109, 30);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Fecha de Terminacion";
+            this.label11.Size = new System.Drawing.Size(84, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Tipo de Servicio";
+            // 
+            // ddlServiceType
+            // 
+            this.ddlServiceType.FormattingEnabled = true;
+            this.ddlServiceType.Location = new System.Drawing.Point(199, 27);
+            this.ddlServiceType.Name = "ddlServiceType";
+            this.ddlServiceType.Size = new System.Drawing.Size(180, 21);
+            this.ddlServiceType.TabIndex = 31;
+            // 
+            // btnPayment
+            // 
+            this.btnPayment.Location = new System.Drawing.Point(792, 149);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(75, 23);
+            this.btnPayment.TabIndex = 30;
+            this.btnPayment.Text = "Abonar";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
+            // 
+            // txtNewPayment
+            // 
+            this.txtNewPayment.Location = new System.Drawing.Point(675, 151);
+            this.txtNewPayment.Name = "txtNewPayment";
+            this.txtNewPayment.Size = new System.Drawing.Size(111, 20);
+            this.txtNewPayment.TabIndex = 29;
+            this.txtNewPayment.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
+            this.txtNewPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewPayment_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(637, 154);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(32, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Pago";
+            // 
+            // listPayments
+            // 
+            this.listPayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colAmount,
+            this.colDate});
+            this.listPayments.GridLines = true;
+            this.listPayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listPayments.HideSelection = false;
+            this.listPayments.Location = new System.Drawing.Point(427, 147);
+            this.listPayments.MultiSelect = false;
+            this.listPayments.Name = "listPayments";
+            this.listPayments.Size = new System.Drawing.Size(204, 286);
+            this.listPayments.TabIndex = 27;
+            this.listPayments.UseCompatibleStateImageBehavior = false;
+            this.listPayments.View = System.Windows.Forms.View.Details;
+            // 
+            // colAmount
+            // 
+            this.colAmount.Text = "Monto";
+            this.colAmount.Width = 74;
+            // 
+            // colDate
+            // 
+            this.colDate.Text = "Fecha";
+            this.colDate.Width = 119;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(425, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Pagos";
+            // 
+            // dteVisit
+            // 
+            this.dteVisit.CustomFormat = "dd/MMM/yyyy";
+            this.dteVisit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dteVisit.Location = new System.Drawing.Point(527, 60);
+            this.dteVisit.Name = "dteVisit";
+            this.dteVisit.Size = new System.Drawing.Size(126, 20);
+            this.dteVisit.TabIndex = 24;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(425, 63);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 13);
+            this.label10.Size = new System.Drawing.Size(80, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Fecha de creacion";
+            this.label10.Text = "Fecha de Visita";
             // 
             // btnSave
             // 
@@ -173,7 +247,12 @@
             this.listDocuments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colID,
             this.colType});
+            this.listDocuments.FullRowSelect = true;
+            this.listDocuments.GridLines = true;
+            this.listDocuments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listDocuments.HideSelection = false;
             this.listDocuments.Location = new System.Drawing.Point(5, 149);
+            this.listDocuments.MultiSelect = false;
             this.listDocuments.Name = "listDocuments";
             this.listDocuments.Size = new System.Drawing.Size(293, 119);
             this.listDocuments.TabIndex = 17;
@@ -199,8 +278,9 @@
             // 
             // txtToPay
             // 
-            this.txtToPay.Location = new System.Drawing.Point(518, 180);
+            this.txtToPay.Location = new System.Drawing.Point(731, 333);
             this.txtToPay.Name = "txtToPay";
+            this.txtToPay.ReadOnly = true;
             this.txtToPay.Size = new System.Drawing.Size(90, 20);
             this.txtToPay.TabIndex = 15;
             // 
@@ -214,17 +294,12 @@
             // 
             // txtAmountTotal
             // 
-            this.txtAmountTotal.Location = new System.Drawing.Point(518, 154);
+            this.txtAmountTotal.Location = new System.Drawing.Point(731, 307);
             this.txtAmountTotal.Name = "txtAmountTotal";
             this.txtAmountTotal.Size = new System.Drawing.Size(90, 20);
             this.txtAmountTotal.TabIndex = 13;
-            // 
-            // txtAmountPaid
-            // 
-            this.txtAmountPaid.Location = new System.Drawing.Point(518, 128);
-            this.txtAmountPaid.Name = "txtAmountPaid";
-            this.txtAmountPaid.Size = new System.Drawing.Size(90, 20);
-            this.txtAmountPaid.TabIndex = 12;
+            this.txtAmountTotal.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
+            this.txtAmountTotal.Enter += new System.EventHandler(this.txtAmountTotal_Enter);
             // 
             // ddlStatus
             // 
@@ -254,7 +329,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 271);
+            this.label8.Location = new System.Drawing.Point(5, 281);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 8;
@@ -272,7 +347,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(424, 183);
+            this.label6.Location = new System.Drawing.Point(637, 336);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 6;
@@ -281,27 +356,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(424, 157);
+            this.label5.Location = new System.Drawing.Point(637, 310);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Cantidad Total";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(424, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Cantidad pagada";
             // 
             // txtID
             // 
             this.txtID.Location = new System.Drawing.Point(29, 27);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(61, 20);
             this.txtID.TabIndex = 3;
             // 
             // label3
@@ -353,7 +419,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtAmountTotal;
-        private System.Windows.Forms.TextBox txtAmountPaid;
         private System.Windows.Forms.ComboBox ddlStatus;
         private System.Windows.Forms.ComboBox ddlContact_Client;
         private System.Windows.Forms.Label label9;
@@ -361,7 +426,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -372,13 +436,20 @@
         private System.Windows.Forms.ComboBox ddlContact_Seller;
         private System.Windows.Forms.Button btnRemoveDocument;
         private System.Windows.Forms.Button btnAddDocument;
-        private System.Windows.Forms.DateTimePicker dteEnd;
-        private System.Windows.Forms.DateTimePicker dteStart;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dteVisit;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnOpenFolder;
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colType;
+        private System.Windows.Forms.ListView listPayments;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPayment;
+        private System.Windows.Forms.TextBox txtNewPayment;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ColumnHeader colAmount;
+        private System.Windows.Forms.ColumnHeader colDate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox ddlServiceType;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace Avaluos
         #endregion
 
         #region Public properties
+        
+        public string BaseDirectory
+        {
+            get { return _baseDirectory; }
+        }
 
         public List<Document> Documents
         {
@@ -29,7 +35,7 @@ namespace Avaluos
         #endregion
 
         #region Constructor
-
+        
         public DocumentCollection(int sak)
         {
             _serviceSak = sak;
@@ -40,6 +46,19 @@ namespace Avaluos
         #endregion
 
         #region Document Handling
+
+        public bool AddToCollection(Document document)
+        {
+            return Add(document);
+        }
+
+        public void CreateBaseDirectory()
+        {
+            if (!Directory.Exists(_baseDirectory))
+            {
+                Directory.CreateDirectory(_baseDirectory);
+            }
+        }
 
         private void RetrieveDocuments()
         {
@@ -55,6 +74,29 @@ namespace Avaluos
                     _collection.Add(doc);
                 }
             }
+        }
+
+        private bool Add(Document doc)
+        {
+            bool documentSaved = false;
+            // Move original file to file structure
+            File.Copy(doc.Directory, _baseDirectory + "\\" + Path.GetFileName(doc.Directory));
+            // Change directory in object
+            doc.Directory = _baseDirectory + "\\" + Path.GetFileName(doc.Directory);
+            // Save document record
+            documentSaved = doc.Save();
+            if (documentSaved)
+            {
+                // Save document-service xref record
+                SQLiteLink db = new SQLiteLink();
+                db.Query = "INSERT INTO SERVICE_DOCS(SAK_SERVICE, SAK_DOCUMENT) VALUES(?,?)";
+                db.AddParameter("@SAK_SERVICE", _serviceSak, OdbcType.Int);
+                db.AddParameter("@SAK_DOCUMENT", doc.Sak, OdbcType.Int);
+                documentSaved = db.ExecuteCommand() == 1;
+                if (!documentSaved)
+                    doc.Remove();
+            }
+            return documentSaved;
         }
 
         #endregion

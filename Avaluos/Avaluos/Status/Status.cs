@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avaluos
+namespace Avaluos.Status
 {
-    abstract class ServiceFactory
+    class Status
     {
-        public abstract Service GetService();
     }
 }

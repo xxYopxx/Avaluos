@@ -188,10 +188,10 @@ namespace Avaluos
         {
             SQLiteLink db = new SQLiteLink();
             db.Query = "SELECT MAX(SAK_CONTACT) as LAST FROM CONTACTS";
-            DataTable result = db.ExecuteReader();
-            if (result != null)
+            DataTable results = db.ExecuteReader();
+            if (results != null && results.Rows.Count > 0)
             {
-                foreach(DataRow row in result.Rows)
+                foreach (DataRow row in results.Rows)
                 {
                     _sak = row["LAST"] != DBNull.Value ? Convert.ToInt32(row["LAST"]) + 1 : 1;
                 }

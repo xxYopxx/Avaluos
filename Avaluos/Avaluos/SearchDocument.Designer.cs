@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDocumentDirectory = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ddlDocumentType = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.ddlDocumentType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.txtDocumentDirectory = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,48 +55,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar Documento";
             // 
-            // label1
+            // btnCancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Documento";
-            // 
-            // txtDocumentDirectory
-            // 
-            this.txtDocumentDirectory.Location = new System.Drawing.Point(74, 28);
-            this.txtDocumentDirectory.Name = "txtDocumentDirectory";
-            this.txtDocumentDirectory.Size = new System.Drawing.Size(379, 20);
-            this.txtDocumentDirectory.TabIndex = 1;
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(459, 26);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 2;
-            this.btnBrowse.Text = "Buscar";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tipo de documento";
-            // 
-            // ddlDocumentType
-            // 
-            this.ddlDocumentType.FormattingEnabled = true;
-            this.ddlDocumentType.Location = new System.Drawing.Point(111, 54);
-            this.ddlDocumentType.Name = "ddlDocumentType";
-            this.ddlDocumentType.Size = new System.Drawing.Size(176, 21);
-            this.ddlDocumentType.TabIndex = 4;
+            this.btnCancel.Location = new System.Drawing.Point(477, 82);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnAdd
             // 
@@ -108,14 +74,48 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCancel
+            // ddlDocumentType
             // 
-            this.btnCancel.Location = new System.Drawing.Point(477, 82);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.ddlDocumentType.FormattingEnabled = true;
+            this.ddlDocumentType.Location = new System.Drawing.Point(111, 54);
+            this.ddlDocumentType.Name = "ddlDocumentType";
+            this.ddlDocumentType.Size = new System.Drawing.Size(176, 21);
+            this.ddlDocumentType.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tipo de documento";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(459, 26);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 2;
+            this.btnBrowse.Text = "Buscar";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // txtDocumentDirectory
+            // 
+            this.txtDocumentDirectory.Location = new System.Drawing.Point(74, 28);
+            this.txtDocumentDirectory.Name = "txtDocumentDirectory";
+            this.txtDocumentDirectory.Size = new System.Drawing.Size(379, 20);
+            this.txtDocumentDirectory.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Documento";
             // 
             // SearchDocument
             // 
@@ -127,6 +127,7 @@
             this.Name = "SearchDocument";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Documento";
+            this.Load += new System.EventHandler(this.SearchDocument_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

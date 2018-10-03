@@ -163,6 +163,11 @@ namespace Avaluos
         }
 
         #endregion
+
+        private void subServices_Search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class WindowManager

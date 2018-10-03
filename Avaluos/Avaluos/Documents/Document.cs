@@ -24,7 +24,7 @@ namespace Avaluos
 
         public enum DocType { Escritura = 1, Recibo_Agua = 2, Recibo_Predial = 3, Plano_Catastral = 4, Plano = 5 };
 
-        public int Sak { get { return Sak; } }
+        public int Sak { get { return _sak; } }
         public string Directory { get { return _directory; } set { _directory = value; } }
         public DocType DocumentType { get { return _type; } set { _type = value; } }
         public Dictionary<int,string> DocumentTypeList { get { return _docTypeList; } }

@@ -79,6 +79,7 @@ namespace Avaluos
         private bool Add(Document doc)
         {
             bool documentSaved = false;
+            CreateBaseDirectory();
             // Move original file to file structure
             File.Copy(doc.Directory, _baseDirectory + "\\" + Path.GetFileName(doc.Directory));
             // Change directory in object

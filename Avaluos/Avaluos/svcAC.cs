@@ -202,7 +202,24 @@ namespace Avaluos
 
         private void ClearFields()
         {
+            _service = new Service();
+            // Select default value in Dropdown lists
+            ddlStatus.SelectedIndex = 0;
+            ddlContact_Client.SelectedIndex = 0;
+            ddlContact_Seller.SelectedIndex = 0;
+            dteVisit.Value = DateTime.Today;
+            dteVisit.Refresh();
 
+            // Clear lists
+            listDocuments.Items.Clear();
+            listPayments.Items.Clear();
+
+            // Clear textboxes
+            txtAmountTotal.Text = string.Empty;
+            txtNewPayment.Text = string.Empty;
+            txtToPay.Text = string.Empty;
+            txtNotes.Text = string.Empty;
+            
         }
 
         #endregion
@@ -213,6 +230,10 @@ namespace Avaluos
         {
             PrepareToSave();
             Save();
+            if (_isNew)
+            {
+                ClearFields();
+            }
         }
 
         private void PrepareToSave()
@@ -243,6 +264,8 @@ namespace Avaluos
         {
             // Save the service record to generate the sak if it's new
             _service.Save();
+            if (_isNew)
+                _service.CreateDocumentsAndPayments();
             // If the service and documents directory don't exist then create them
             // Copy the new documents to their final destination
             // Create the documents record

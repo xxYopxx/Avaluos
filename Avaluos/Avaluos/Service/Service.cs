@@ -12,6 +12,7 @@ namespace Avaluos
         #region Private members
 
         string _notes;
+        string _responsible;
         int _sakService;
         int _sakStatus;
         int _sakType;
@@ -25,7 +26,7 @@ namespace Avaluos
         PaymentCollection _payments;
         Dictionary<int, string> _statusList;
         Dictionary<int, string> _serviceTypeList;
-
+        List<string> _responsibleList;
         #endregion
 
         #region Public properties
@@ -34,6 +35,7 @@ namespace Avaluos
         public int ServiceType { get { return _sakType; } set { _sakType = value; } }
         public int Status { get { return _sakStatus; } set { _sakStatus = value; } }
         public int AmountTotal { get { return _amountTotal; } set { _amountTotal = value; } }
+        public string Responsible { get { return _responsible; } set { _responsible = value; } }
         public string Notes { get { return _notes; } set { _notes = value; } }
         public Contact Client { get { return _client; } set { _client = value; } }
         public Contact Seller { get { return _client; } set { _seller = value; } }
@@ -44,6 +46,7 @@ namespace Avaluos
         public PaymentCollection Payments { get { return _payments; } }
         public Dictionary<int, string> StatusList { get { return _statusList; } }
         public Dictionary<int, string> ServiceTypeList { get { return _serviceTypeList; } }
+        public List<string> ResponsibleList { get { return _responsibleList; } }
 
         #endregion
 
@@ -53,6 +56,7 @@ namespace Avaluos
         {
             FillStatusList();
             FillServiceTypeList();
+            FillResponsibleList();
         }
 
         public Service(int sak)
@@ -63,11 +67,21 @@ namespace Avaluos
             GetPayments();
             FillStatusList();
             FillServiceTypeList();
+            FillResponsibleList();
         }
 
         #endregion
 
         #region Functionality
+
+        public void CreateDocumentsAndPayments()
+        {
+            if (_sakService != -1)
+            {
+                _documents = new DocumentCollection(_sakService);
+                _payments = new PaymentCollection(_sakService);
+            }
+        }
 
         public bool Save()
         {
@@ -95,6 +109,14 @@ namespace Avaluos
             _serviceTypeList.Add(4, "Plano");
         }
 
+        private void FillResponsibleList()
+        {
+            _responsibleList = new List<string>();
+            _responsibleList.Add("Diana");
+            _responsibleList.Add("Adolfo");
+            _responsibleList.Add("Arquitecto");
+        }
+
         #endregion
 
         #region DataOperations
@@ -116,7 +138,7 @@ namespace Avaluos
             db.AddParameter("@AMOUNT_TOTAL", _amountTotal, System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@START", Convert.ToInt32(_dateStart.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@END", Convert.ToInt32(_dateEnd.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
-            db.AddParameter("@VISIT", Convert.ToInt32(_dateEnd.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
+            db.AddParameter("@VISIT", Convert.ToInt32(_dateVisit.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@NOTES", _notes, System.Data.Odbc.OdbcType.Text);
             db.AddParameter("@SAK", _sakService, System.Data.Odbc.OdbcType.Int);
             return db.ExecuteCommand() == 1;

@@ -104,7 +104,7 @@
             this.subServices_New_MAI,
             this.subServices_New_Print});
             this.subServices_New.Name = "subServices_New";
-            this.subServices_New.Size = new System.Drawing.Size(109, 22);
+            this.subServices_New.Size = new System.Drawing.Size(180, 22);
             this.subServices_New.Text = "Nuevo";
             // 
             // subServices_New_AC
@@ -138,8 +138,9 @@
             // subServices_Search
             // 
             this.subServices_Search.Name = "subServices_Search";
-            this.subServices_Search.Size = new System.Drawing.Size(109, 22);
+            this.subServices_Search.Size = new System.Drawing.Size(180, 22);
             this.subServices_Search.Text = "Buscar";
+            this.subServices_Search.Click += new System.EventHandler(this.subServices_Search_Click);
             // 
             // menuContacts
             // 

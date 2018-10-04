@@ -42,13 +42,13 @@ namespace Avaluos
         /// </summary>
         string _phone;
 
+        string _phone2;
+
         /// <summary>
         /// Contact's electronic mail address
         /// </summary>
         string _email;
-
-        OdbcConnection sqlConnection;
-
+        
         #endregion
 
         #region Public properties
@@ -86,6 +86,12 @@ namespace Avaluos
         {
             get { return _phone; }
             set { _phone = value; }
+        }
+
+        public string Phone2
+        {
+            get { return _phone2; }
+            set { _phone2 = value; }
         }
 
         public string Email
@@ -136,13 +142,14 @@ namespace Avaluos
             bool result = false;
             GetLastID();
             SQLiteLink db = new SQLiteLink();
-            db.Query = "INSERT INTO CONTACTS(SAK_CONTACT, NAME, ADDRESS, RFC,NSS,PHONE,EMAIL) VALUES(?, ?, ?, ?, ?, ?, ?);";
+            db.Query = "INSERT INTO CONTACTS(SAK_CONTACT, NAME, ADDRESS, RFC,NSS,PHONE,PHONE2,EMAIL) VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
             db.AddParameter("@SAK", _sak, OdbcType.Int);
             db.AddParameter("@NAME", _name, OdbcType.Text);
             db.AddParameter("@ADDRESS", _address, OdbcType.Text);
             db.AddParameter("@RFC", _RFC, OdbcType.Text);
             db.AddParameter("@NSS", _NSS, OdbcType.Text);
             db.AddParameter("@PHONE", _phone, OdbcType.Text);
+            db.AddParameter("@PHONE2", _phone2, OdbcType.Text);
             db.AddParameter("@EMAIL", _email, OdbcType.Text);
             result = db.ExecuteCommand() == 1;
             return result;
@@ -152,13 +159,15 @@ namespace Avaluos
         {
             bool result = false;
             SQLiteLink db = new SQLiteLink();
-            db.Query = "UPDATE CONTACTS SET NAME = ?, ADDRESS = ?, RFC = ?, NSS = ?, PHONE = ?, EMAIL = ? WHERE SAK_CONTACT = ?";
+            db.Query = "UPDATE CONTACTS SET NAME = ?, ADDRESS = ?, RFC = ?, NSS = ?, PHONE = ?, PHONE2 = ?, EMAIL = ? WHERE SAK_CONTACT = ?";
             db.AddParameter("@NAME", _name, OdbcType.Text);
             db.AddParameter("@ADDRESS", _address, OdbcType.Text);
             db.AddParameter("@RFC", _RFC, OdbcType.Text);
             db.AddParameter("@NSS", _NSS, OdbcType.Text);
             db.AddParameter("@PHONE", _phone, OdbcType.Text);
+            db.AddParameter("@PHONE2", _phone2, OdbcType.Text);
             db.AddParameter("@EMAIL", _email, OdbcType.Text);
+            db.AddParameter("@SAK", _sak, OdbcType.Int);
             result = db.ExecuteCommand() == 1;
             return result;
         }
@@ -179,6 +188,7 @@ namespace Avaluos
                     _RFC = row["RFC"].ToString();
                     _NSS = row["NSS"].ToString();
                     _phone = row["PHONE"].ToString();
+                    _phone2 = row["PHONE2"].ToString();
                     _email = row["EMAIL"].ToString();
                 }
             }

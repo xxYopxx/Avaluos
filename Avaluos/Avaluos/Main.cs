@@ -57,6 +57,7 @@ namespace Avaluos
 
         private void DisplayWindow(object sender, EventArgs e)
         {
+            bool dontDisplay = false;
             bool isContact = false;
             int index = 0;
             Form currentWindow = null;
@@ -72,7 +73,7 @@ namespace Avaluos
                     break;
                 case "subContacts_Search":
                     currentWindow = new ContactSearch();
-                    index = -6;
+                    index = -2;
                     item.Text = "Buscar Contacto";
                     isContact = true;
                     break;
@@ -82,25 +83,23 @@ namespace Avaluos
                     item.Text = (currentWindow as Contacts).ContactName;
                     isContact = true;
                     break;
-                case "subServices_New_AC":
-                    currentWindow = new svcAC();
-                    index = -2;
-                    item.Text = "Nuevo Avaluo Cat";
-                    break;
-                case "subServices_New_Estimate":
-                    currentWindow = new svcEstimate();
+                case "subServices_New":
+                    ContactCollection contacts = new ContactCollection();
+                    currentWindow = contacts.HasContacts() ? new ServiceForm() : null;
+                    if (currentWindow == null)
+                        MessageBox.Show("No hay contactos registrados. Es necesario tener al menos un contacto para poder dar de alta un servicio.","Sin Contactos",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     index = -3;
-                    item.Text = "Nueva Estimacion";
+                    item.Text = "Nuevo Servicio";
                     break;
-                case "subServices_New_MAI":
-                    currentWindow = new svcMAI();
+                case "subServices_Search":
+                    currentWindow = new ServiceSearch();
                     index = -4;
-                    item.Text = "Nuevo MAI";
+                    item.Text = "Buscar Servicio";
                     break;
-                case "subServices_New_Print":
-                    currentWindow = new svcPrint();
-                    index = -5;
-                    item.Text = "Nuevo Plano";
+                case "OpenService":
+                    currentWindow = new ServiceForm(_selectedService);
+                    index = _selectedService;
+                    item.Text = (currentWindow as ServiceForm).Title;
                     break;
             }
             if (currentWindow != null)
@@ -164,9 +163,15 @@ namespace Avaluos
 
         #endregion
 
-        private void subServices_Search_Click(object sender, EventArgs e)
+        private void contextListWindows_Remove_Click(object sender, EventArgs e)
         {
-
+            if(treeCurrent.SelectedNode != treeCurrent.Nodes[CONTACTS_NODE] && treeCurrent.SelectedNode != treeCurrent.Nodes[SERVICES_NODE])
+            {
+                pnlCurrent.Controls.Clear();
+                openedWindows.Remove(Convert.ToInt32(treeCurrent.SelectedNode.Name));
+                treeCurrent.SelectedNode.Remove();
+                treeCurrent.SelectedNode = treeCurrent.Nodes[SERVICES_NODE];
+            }
         }
     }
 

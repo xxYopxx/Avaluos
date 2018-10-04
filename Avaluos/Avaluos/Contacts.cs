@@ -78,6 +78,7 @@ namespace Avaluos
             txtRFC.Text = _currentContact.RFC;
             txtNSS.Text = _currentContact.NSS;
             txtPhone.Text = _currentContact.Phone;
+            txtPhone2.Text = _currentContact.Phone2;
             txtEmail.Text = _currentContact.Email;
         }
 
@@ -88,6 +89,7 @@ namespace Avaluos
             _currentContact.RFC = txtRFC.Text;
             _currentContact.NSS = txtNSS.Text;
             _currentContact.Phone = txtPhone.Text;
+            _currentContact.Phone2 = txtPhone2.Text;
             _currentContact.Email = txtEmail.Text;
             if (_currentContact.Save())
             {
@@ -98,7 +100,10 @@ namespace Avaluos
                 (Parent.Parent as Main).UpdateStatus("Error al guardar - Ver log");
             }
             if (_isNew)
+            {
+                _currentContact = new Contact();
                 ClearFields();
+            }
         }
 
         private void ClearFields()
@@ -109,6 +114,7 @@ namespace Avaluos
             txtRFC.Text = string.Empty;
             txtNSS.Text = string.Empty;
             txtPhone.Text = string.Empty;
+            txtPhone2.Text = string.Empty;
             txtEmail.Text = string.Empty;
         }
 

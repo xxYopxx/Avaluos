@@ -48,7 +48,10 @@ namespace Avaluos
             if (txtNSS.Text.Trim() != string.Empty)
                 collection.AddSearchParameter("NSS", txtNSS.Text);
             if (txtPhone.Text.Trim() != string.Empty)
+            {
                 collection.AddSearchParameter("PHONE", txtPhone.Text);
+                collection.AddSearchParameter("PHONE2", txtPhone.Text);
+            }
             if (txtEmail.Text.Trim() != string.Empty)
                 collection.AddSearchParameter("EMAIL", txtEmail.Text);
 

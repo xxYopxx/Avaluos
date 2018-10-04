@@ -28,16 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.subApplication_Settings = new System.Windows.Forms.ToolStripMenuItem();
             this.subApplication_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuServices = new System.Windows.Forms.ToolStripMenuItem();
             this.subServices_New = new System.Windows.Forms.ToolStripMenuItem();
-            this.subServices_New_AC = new System.Windows.Forms.ToolStripMenuItem();
-            this.subServices_New_Estimate = new System.Windows.Forms.ToolStripMenuItem();
-            this.subServices_New_MAI = new System.Windows.Forms.ToolStripMenuItem();
-            this.subServices_New_Print = new System.Windows.Forms.ToolStripMenuItem();
             this.subServices_Search = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContacts = new System.Windows.Forms.ToolStripMenuItem();
             this.subContacts_New = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,8 +44,11 @@
             this.barStatus = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCurrentStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextListWindows = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextListWindows_Remove = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.barStatus.SuspendLayout();
+            this.contextListWindows.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -98,49 +98,17 @@
             // 
             // subServices_New
             // 
-            this.subServices_New.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subServices_New_AC,
-            this.subServices_New_Estimate,
-            this.subServices_New_MAI,
-            this.subServices_New_Print});
             this.subServices_New.Name = "subServices_New";
             this.subServices_New.Size = new System.Drawing.Size(180, 22);
             this.subServices_New.Text = "Nuevo";
-            // 
-            // subServices_New_AC
-            // 
-            this.subServices_New_AC.Name = "subServices_New_AC";
-            this.subServices_New_AC.Size = new System.Drawing.Size(160, 22);
-            this.subServices_New_AC.Text = "Avaluo Catastral";
-            this.subServices_New_AC.Click += new System.EventHandler(this.DisplayWindow);
-            // 
-            // subServices_New_Estimate
-            // 
-            this.subServices_New_Estimate.Name = "subServices_New_Estimate";
-            this.subServices_New_Estimate.Size = new System.Drawing.Size(160, 22);
-            this.subServices_New_Estimate.Text = "Estimacion";
-            this.subServices_New_Estimate.Click += new System.EventHandler(this.DisplayWindow);
-            // 
-            // subServices_New_MAI
-            // 
-            this.subServices_New_MAI.Name = "subServices_New_MAI";
-            this.subServices_New_MAI.Size = new System.Drawing.Size(160, 22);
-            this.subServices_New_MAI.Text = "MAI";
-            this.subServices_New_MAI.Click += new System.EventHandler(this.DisplayWindow);
-            // 
-            // subServices_New_Print
-            // 
-            this.subServices_New_Print.Name = "subServices_New_Print";
-            this.subServices_New_Print.Size = new System.Drawing.Size(160, 22);
-            this.subServices_New_Print.Text = "Plano";
-            this.subServices_New_Print.Click += new System.EventHandler(this.DisplayWindow);
+            this.subServices_New.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // subServices_Search
             // 
             this.subServices_Search.Name = "subServices_Search";
             this.subServices_Search.Size = new System.Drawing.Size(180, 22);
             this.subServices_Search.Text = "Buscar";
-            this.subServices_Search.Click += new System.EventHandler(this.subServices_Search_Click);
+            this.subServices_Search.Click += new System.EventHandler(this.DisplayWindow);
             // 
             // menuContacts
             // 
@@ -167,6 +135,7 @@
             // 
             // treeCurrent
             // 
+            this.treeCurrent.ContextMenuStrip = this.contextListWindows;
             this.treeCurrent.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeCurrent.HideSelection = false;
             this.treeCurrent.Location = new System.Drawing.Point(0, 24);
@@ -209,6 +178,20 @@
             this.lblCurrentStatus.Size = new System.Drawing.Size(32, 17);
             this.lblCurrentStatus.Text = "Listo";
             // 
+            // contextListWindows
+            // 
+            this.contextListWindows.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextListWindows_Remove});
+            this.contextListWindows.Name = "contextListWindows";
+            this.contextListWindows.Size = new System.Drawing.Size(181, 48);
+            // 
+            // contextListWindows_Remove
+            // 
+            this.contextListWindows_Remove.Name = "contextListWindows_Remove";
+            this.contextListWindows_Remove.Size = new System.Drawing.Size(180, 22);
+            this.contextListWindows_Remove.Text = "Cerrar";
+            this.contextListWindows_Remove.Click += new System.EventHandler(this.contextListWindows_Remove_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +211,7 @@
             this.menuStrip1.PerformLayout();
             this.barStatus.ResumeLayout(false);
             this.barStatus.PerformLayout();
+            this.contextListWindows.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,16 +228,14 @@
         private System.Windows.Forms.ToolStripMenuItem menuServices;
         private System.Windows.Forms.ToolStripMenuItem subServices_New;
         private System.Windows.Forms.ToolStripMenuItem subServices_Search;
-        private System.Windows.Forms.ToolStripMenuItem subServices_New_AC;
-        private System.Windows.Forms.ToolStripMenuItem subServices_New_Estimate;
-        private System.Windows.Forms.ToolStripMenuItem subServices_New_MAI;
-        private System.Windows.Forms.ToolStripMenuItem subServices_New_Print;
         private System.Windows.Forms.ToolStripMenuItem menuContacts;
         private System.Windows.Forms.ToolStripMenuItem subContacts_New;
         private System.Windows.Forms.ToolStripMenuItem subContacts_Search;
         private System.Windows.Forms.StatusStrip barStatus;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripStatusLabel lblCurrentStatus;
+        private System.Windows.Forms.ContextMenuStrip contextListWindows;
+        private System.Windows.Forms.ToolStripMenuItem contextListWindows_Remove;
     }
 }
 

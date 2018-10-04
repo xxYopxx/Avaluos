@@ -13,6 +13,7 @@ namespace Avaluos
 
         string _notes;
         string _responsible;
+        string _title;
         int _sakService;
         int _sakStatus;
         int _sakType;
@@ -35,6 +36,7 @@ namespace Avaluos
         public int ServiceType { get { return _sakType; } set { _sakType = value; } }
         public int Status { get { return _sakStatus; } set { _sakStatus = value; } }
         public int AmountTotal { get { return _amountTotal; } set { _amountTotal = value; } }
+        public string Title { get { return _title; } set { _title = value; } }
         public string Responsible { get { return _responsible; } set { _responsible = value; } }
         public string Notes { get { return _notes; } set { _notes = value; } }
         public Contact Client { get { return _client; } set { _client = value; } }
@@ -127,18 +129,20 @@ namespace Avaluos
             if (_sakService == -1)
             {
                 GetLastID();
-                db.Query = "INSERT INTO SERVICES(SAK_CONTACT,SAK_SERVICE_TYPE, SAK_CONTACT_SELLER, SAK_STATUS, AMOUNT_TOTAL, DTE_START, DTE_END, DTE_VISIT, NOTES, SAK_SERVICE) VALUES(?,?,?,?,?,?,?,?,?,?)";
+                db.Query = "INSERT INTO SERVICES(SAK_CONTACT,SAK_SERVICE_TYPE, SAK_CONTACT_SELLER, SAK_STATUS, TITLE, AMOUNT_TOTAL, DTE_START, DTE_END, DTE_VISIT, RESPONSIBLE, NOTES, SAK_SERVICE) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
             }
             else
-                db.Query = "UPDATE SERVICES SET SAK_SERVICE_TYPE=?, SAK_CONTACT=?, SAK_CONTACT_SELLER=?, SAK_STATUS=?, AMOUNT_TOTAL=?, DTE_START=?, DTE_END=?, DTE_VISIT=?, NOTES=? WHERE SAK_SERVICE = ?";
+                db.Query = "UPDATE SERVICES SET SAK_SERVICE_TYPE=?, SAK_CONTACT=?, SAK_CONTACT_SELLER=?, SAK_STATUS=?, TITLE = ?, AMOUNT_TOTAL=?, DTE_START=?, DTE_END=?, DTE_VISIT=?, NOTES=?, RESPONSIBLE=? WHERE SAK_SERVICE = ?";
             db.AddParameter("@TYPE", _sakType, System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@CONTACT", _client.SAK_Contact, System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@SELLER", (_seller != null ? _seller.SAK_Contact : 0), System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@STATUS", _sakStatus, System.Data.Odbc.OdbcType.Int);
+            db.AddParameter("@TITLE", _title, System.Data.Odbc.OdbcType.Text);
             db.AddParameter("@AMOUNT_TOTAL", _amountTotal, System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@START", Convert.ToInt32(_dateStart.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@END", Convert.ToInt32(_dateEnd.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
             db.AddParameter("@VISIT", Convert.ToInt32(_dateVisit.ToString("yyyyMMdd")), System.Data.Odbc.OdbcType.Int);
+            db.AddParameter("@RESPONSIBLE", _responsible, System.Data.Odbc.OdbcType.Text);
             db.AddParameter("@NOTES", _notes, System.Data.Odbc.OdbcType.Text);
             db.AddParameter("@SAK", _sakService, System.Data.Odbc.OdbcType.Int);
             return db.ExecuteCommand() == 1;
@@ -158,10 +162,12 @@ namespace Avaluos
                     _client = new Contact(Convert.ToInt32(row["SAK_CONTACT"]));
                     _seller = new Contact(Convert.ToInt32(row["SAK_CONTACT_SELLER"]));
                     _sakStatus = Convert.ToInt32(row["SAK_STATUS"]);
+                    _title = row["TITLE"].ToString();
                     _amountTotal = Convert.ToInt32(row["AMOUNT_TOTAL"]);
                     _dateStart = DateTime.ParseExact(row["DTE_START"].ToString(), "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
                     _dateEnd = DateTime.ParseExact(row["DTE_END"].ToString(), "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
                     _dateVisit = DateTime.ParseExact(row["DTE_VISIT"].ToString(), "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture);
+                    _responsible = row["RESPONSIBLE"].ToString();
                     _notes = row["NOTES"].ToString();
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Odbc;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,22 @@ namespace Avaluos
         public void ClearSearchParameters()
         {
             _parameters.Clear();
+        }
+
+        public bool HasContacts()
+        {
+            bool result = false;
+            SQLiteLink db = new SQLiteLink();
+            db.Query = "SELECT 1 AS FLAG FROM CONTACTS WHERE SAK_CONTACT>0";
+            DataTable results = db.ExecuteReader();
+            if (results != null && results.Rows.Count > 0)
+            {
+                foreach (DataRow row in results.Rows)
+                    result = row["FLAG"] != DBNull.Value ? true : false;
+            }
+            else
+                result = false;
+            return result;
         }
 
         public bool Search()

@@ -1,6 +1,6 @@
 ﻿namespace Avaluos
 {
-    partial class SearchServices
+    partial class ServiceSearch
     {
         /// <summary>
         /// Required designer variable.

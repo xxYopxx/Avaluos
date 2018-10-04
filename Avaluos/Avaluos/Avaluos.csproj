@@ -65,11 +65,11 @@
     <Compile Include="SearchDocument.Designer.cs">
       <DependentUpon>SearchDocument.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchServices.cs">
+    <Compile Include="ServiceSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchServices.Designer.cs">
-      <DependentUpon>SearchServices.cs</DependentUpon>
+    <Compile Include="ServiceSearch.Designer.cs">
+      <DependentUpon>ServiceSearch.cs</DependentUpon>
     </Compile>
     <Compile Include="ServiceAC\ServiceAC.cs" />
     <Compile Include="Configuration.cs">
@@ -95,29 +95,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Service.cs" />
     <Compile Include="Status\Status.cs" />
-    <Compile Include="svcAC.cs">
+    <Compile Include="ServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="svcAC.Designer.cs">
-      <DependentUpon>svcAC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="svcEstimate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="svcEstimate.Designer.cs">
-      <DependentUpon>svcEstimate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="svcMAI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="svcMAI.Designer.cs">
-      <DependentUpon>svcMAI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="svcPrint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="svcPrint.Designer.cs">
-      <DependentUpon>svcPrint.cs</DependentUpon>
+    <Compile Include="ServiceForm.Designer.cs">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
@@ -143,20 +125,11 @@
     <EmbeddedResource Include="SearchDocument.resx">
       <DependentUpon>SearchDocument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchServices.resx">
-      <DependentUpon>SearchServices.cs</DependentUpon>
+    <EmbeddedResource Include="ServiceSearch.resx">
+      <DependentUpon>ServiceSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="svcAC.resx">
-      <DependentUpon>svcAC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="svcEstimate.resx">
-      <DependentUpon>svcEstimate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="svcMAI.resx">
-      <DependentUpon>svcMAI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="svcPrint.resx">
-      <DependentUpon>svcPrint.cs</DependentUpon>
+    <EmbeddedResource Include="ServiceForm.resx">
+      <DependentUpon>ServiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

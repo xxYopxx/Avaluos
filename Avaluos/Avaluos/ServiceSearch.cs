@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Avaluos
 {
-    public partial class SearchServices : Form
+    public partial class ServiceSearch : Form
     {
-        public SearchServices()
+        public ServiceSearch()
         {
             InitializeComponent();
         }

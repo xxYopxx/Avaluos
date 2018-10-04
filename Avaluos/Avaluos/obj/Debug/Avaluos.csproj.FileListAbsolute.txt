@@ -38,10 +38,6 @@ D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Configuration.resource
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Contacts.resources
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Main.resources
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.Properties.Resources.resources
-D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcAC.resources
-D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcEstimate.resources
-D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcMAI.resources
-D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.svcPrint.resources
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.GenerateResource.cache
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.csproj.CoreCompileInputs.cache
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.exe
@@ -66,4 +62,5 @@ D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ContactSearch.resource
 D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.SearchDocument.resources
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ContactSearch.resources
 C:\GIT Repo\Avaluos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.SearchDocument.resources
-D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.SearchServices.resources
+D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ServiceSearch.resources
+D:\Github\Repos\Avaluos\Avaluos\Avaluos\obj\Debug\Avaluos.ServiceForm.resources

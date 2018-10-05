@@ -29,44 +29,44 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listDocuments = new System.Windows.Forms.ListView();
+            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAddDocument = new System.Windows.Forms.Button();
+            this.btnRemoveDocument = new System.Windows.Forms.Button();
+            this.btnOpenFolder = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listPayments = new System.Windows.Forms.ListView();
+            this.colAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAmountTotal = new System.Windows.Forms.TextBox();
+            this.txtToPay = new System.Windows.Forms.TextBox();
+            this.btnPayment = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtNewPayment = new System.Windows.Forms.TextBox();
             this.ddlResponsible = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.ddlServiceType = new System.Windows.Forms.ComboBox();
-            this.btnPayment = new System.Windows.Forms.Button();
-            this.txtNewPayment = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.listPayments = new System.Windows.Forms.ListView();
-            this.colAmount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dteVisit = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnOpenFolder = new System.Windows.Forms.Button();
-            this.btnRemoveDocument = new System.Windows.Forms.Button();
-            this.btnAddDocument = new System.Windows.Forms.Button();
-            this.listDocuments = new System.Windows.Forms.ListView();
-            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.colType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtNotes = new System.Windows.Forms.TextBox();
-            this.txtToPay = new System.Windows.Forms.TextBox();
             this.ddlContact_Seller = new System.Windows.Forms.ComboBox();
-            this.txtAmountTotal = new System.Windows.Forms.TextBox();
             this.ddlStatus = new System.Windows.Forms.ComboBox();
             this.ddlContact_Client = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblContact_Seller = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -90,7 +90,7 @@
             this.groupBox1.Controls.Add(this.ddlStatus);
             this.groupBox1.Controls.Add(this.ddlContact_Client);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.lblContact_Seller);
             this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -103,6 +103,208 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Avaluo Catastral";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(44, 63);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(352, 20);
+            this.textBox1.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Titulo";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(422, 18);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(473, 386);
+            this.tabControl1.TabIndex = 35;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.listDocuments);
+            this.tabPage1.Controls.Add(this.btnAddDocument);
+            this.tabPage1.Controls.Add(this.btnRemoveDocument);
+            this.tabPage1.Controls.Add(this.btnOpenFolder);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(465, 360);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Documentos";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listDocuments
+            // 
+            this.listDocuments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colID,
+            this.colType});
+            this.listDocuments.FullRowSelect = true;
+            this.listDocuments.GridLines = true;
+            this.listDocuments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listDocuments.HideSelection = false;
+            this.listDocuments.Location = new System.Drawing.Point(10, 15);
+            this.listDocuments.MultiSelect = false;
+            this.listDocuments.Name = "listDocuments";
+            this.listDocuments.Size = new System.Drawing.Size(293, 339);
+            this.listDocuments.TabIndex = 17;
+            this.listDocuments.UseCompatibleStateImageBehavior = false;
+            this.listDocuments.View = System.Windows.Forms.View.Details;
+            // 
+            // colID
+            // 
+            this.colID.Text = "ID";
+            // 
+            // colType
+            // 
+            this.colType.Text = "Tipo";
+            this.colType.Width = 218;
+            // 
+            // btnAddDocument
+            // 
+            this.btnAddDocument.Location = new System.Drawing.Point(309, 82);
+            this.btnAddDocument.Name = "btnAddDocument";
+            this.btnAddDocument.Size = new System.Drawing.Size(75, 23);
+            this.btnAddDocument.TabIndex = 18;
+            this.btnAddDocument.Text = "Agregar";
+            this.btnAddDocument.UseVisualStyleBackColor = true;
+            this.btnAddDocument.Click += new System.EventHandler(this.btnAddDocument_Click);
+            // 
+            // btnRemoveDocument
+            // 
+            this.btnRemoveDocument.Location = new System.Drawing.Point(309, 111);
+            this.btnRemoveDocument.Name = "btnRemoveDocument";
+            this.btnRemoveDocument.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveDocument.TabIndex = 19;
+            this.btnRemoveDocument.Text = "Remover";
+            this.btnRemoveDocument.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenFolder
+            // 
+            this.btnOpenFolder.Location = new System.Drawing.Point(309, 15);
+            this.btnOpenFolder.Name = "btnOpenFolder";
+            this.btnOpenFolder.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenFolder.TabIndex = 20;
+            this.btnOpenFolder.Text = "Abrir Folder";
+            this.btnOpenFolder.UseVisualStyleBackColor = true;
+            this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.listPayments);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.txtAmountTotal);
+            this.tabPage2.Controls.Add(this.txtToPay);
+            this.tabPage2.Controls.Add(this.btnPayment);
+            this.tabPage2.Controls.Add(this.label12);
+            this.tabPage2.Controls.Add(this.txtNewPayment);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(465, 360);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Pagos";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listPayments
+            // 
+            this.listPayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colAmount,
+            this.colDate});
+            this.listPayments.GridLines = true;
+            this.listPayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listPayments.HideSelection = false;
+            this.listPayments.Location = new System.Drawing.Point(10, 15);
+            this.listPayments.MultiSelect = false;
+            this.listPayments.Name = "listPayments";
+            this.listPayments.Size = new System.Drawing.Size(271, 339);
+            this.listPayments.TabIndex = 27;
+            this.listPayments.UseCompatibleStateImageBehavior = false;
+            this.listPayments.View = System.Windows.Forms.View.Details;
+            // 
+            // colAmount
+            // 
+            this.colAmount.Text = "Monto";
+            this.colAmount.Width = 74;
+            // 
+            // colDate
+            // 
+            this.colDate.Text = "Fecha";
+            this.colDate.Width = 119;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(287, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Cantidad Total";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(287, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Por pagar";
+            // 
+            // txtAmountTotal
+            // 
+            this.txtAmountTotal.Location = new System.Drawing.Point(369, 106);
+            this.txtAmountTotal.Name = "txtAmountTotal";
+            this.txtAmountTotal.Size = new System.Drawing.Size(90, 20);
+            this.txtAmountTotal.TabIndex = 13;
+            this.txtAmountTotal.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
+            this.txtAmountTotal.Enter += new System.EventHandler(this.txtAmountTotal_Enter);
+            // 
+            // txtToPay
+            // 
+            this.txtToPay.Location = new System.Drawing.Point(369, 132);
+            this.txtToPay.Name = "txtToPay";
+            this.txtToPay.ReadOnly = true;
+            this.txtToPay.Size = new System.Drawing.Size(90, 20);
+            this.txtToPay.TabIndex = 15;
+            // 
+            // btnPayment
+            // 
+            this.btnPayment.Location = new System.Drawing.Point(384, 36);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(75, 23);
+            this.btnPayment.TabIndex = 30;
+            this.btnPayment.Text = "Abonar";
+            this.btnPayment.UseVisualStyleBackColor = true;
+            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(310, 13);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(32, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Pago";
+            // 
+            // txtNewPayment
+            // 
+            this.txtNewPayment.Location = new System.Drawing.Point(348, 10);
+            this.txtNewPayment.Name = "txtNewPayment";
+            this.txtNewPayment.Size = new System.Drawing.Size(111, 20);
+            this.txtNewPayment.TabIndex = 29;
+            this.txtNewPayment.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
+            this.txtNewPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewPayment_KeyPress);
             // 
             // ddlResponsible
             // 
@@ -139,60 +341,7 @@
             this.ddlServiceType.Name = "ddlServiceType";
             this.ddlServiceType.Size = new System.Drawing.Size(133, 21);
             this.ddlServiceType.TabIndex = 31;
-            // 
-            // btnPayment
-            // 
-            this.btnPayment.Location = new System.Drawing.Point(384, 36);
-            this.btnPayment.Name = "btnPayment";
-            this.btnPayment.Size = new System.Drawing.Size(75, 23);
-            this.btnPayment.TabIndex = 30;
-            this.btnPayment.Text = "Abonar";
-            this.btnPayment.UseVisualStyleBackColor = true;
-            this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
-            // 
-            // txtNewPayment
-            // 
-            this.txtNewPayment.Location = new System.Drawing.Point(348, 10);
-            this.txtNewPayment.Name = "txtNewPayment";
-            this.txtNewPayment.Size = new System.Drawing.Size(111, 20);
-            this.txtNewPayment.TabIndex = 29;
-            this.txtNewPayment.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
-            this.txtNewPayment.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNewPayment_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(310, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 13);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Pago";
-            // 
-            // listPayments
-            // 
-            this.listPayments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colAmount,
-            this.colDate});
-            this.listPayments.GridLines = true;
-            this.listPayments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listPayments.HideSelection = false;
-            this.listPayments.Location = new System.Drawing.Point(10, 15);
-            this.listPayments.MultiSelect = false;
-            this.listPayments.Name = "listPayments";
-            this.listPayments.Size = new System.Drawing.Size(271, 339);
-            this.listPayments.TabIndex = 27;
-            this.listPayments.UseCompatibleStateImageBehavior = false;
-            this.listPayments.View = System.Windows.Forms.View.Details;
-            // 
-            // colAmount
-            // 
-            this.colAmount.Text = "Monto";
-            this.colAmount.Width = 74;
-            // 
-            // colDate
-            // 
-            this.colDate.Text = "Fecha";
-            this.colDate.Width = 119;
+            this.ddlServiceType.SelectedIndexChanged += new System.EventHandler(this.ddlServiceType_SelectedIndexChanged);
             // 
             // dteVisit
             // 
@@ -223,61 +372,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // btnOpenFolder
-            // 
-            this.btnOpenFolder.Location = new System.Drawing.Point(309, 15);
-            this.btnOpenFolder.Name = "btnOpenFolder";
-            this.btnOpenFolder.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenFolder.TabIndex = 20;
-            this.btnOpenFolder.Text = "Abrir Folder";
-            this.btnOpenFolder.UseVisualStyleBackColor = true;
-            this.btnOpenFolder.Click += new System.EventHandler(this.btnOpenFolder_Click);
-            // 
-            // btnRemoveDocument
-            // 
-            this.btnRemoveDocument.Location = new System.Drawing.Point(309, 111);
-            this.btnRemoveDocument.Name = "btnRemoveDocument";
-            this.btnRemoveDocument.Size = new System.Drawing.Size(75, 23);
-            this.btnRemoveDocument.TabIndex = 19;
-            this.btnRemoveDocument.Text = "Remover";
-            this.btnRemoveDocument.UseVisualStyleBackColor = true;
-            // 
-            // btnAddDocument
-            // 
-            this.btnAddDocument.Location = new System.Drawing.Point(309, 82);
-            this.btnAddDocument.Name = "btnAddDocument";
-            this.btnAddDocument.Size = new System.Drawing.Size(75, 23);
-            this.btnAddDocument.TabIndex = 18;
-            this.btnAddDocument.Text = "Agregar";
-            this.btnAddDocument.UseVisualStyleBackColor = true;
-            this.btnAddDocument.Click += new System.EventHandler(this.btnAddDocument_Click);
-            // 
-            // listDocuments
-            // 
-            this.listDocuments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colID,
-            this.colType});
-            this.listDocuments.FullRowSelect = true;
-            this.listDocuments.GridLines = true;
-            this.listDocuments.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listDocuments.HideSelection = false;
-            this.listDocuments.Location = new System.Drawing.Point(10, 15);
-            this.listDocuments.MultiSelect = false;
-            this.listDocuments.Name = "listDocuments";
-            this.listDocuments.Size = new System.Drawing.Size(293, 339);
-            this.listDocuments.TabIndex = 17;
-            this.listDocuments.UseCompatibleStateImageBehavior = false;
-            this.listDocuments.View = System.Windows.Forms.View.Details;
-            // 
-            // colID
-            // 
-            this.colID.Text = "ID";
-            // 
-            // colType
-            // 
-            this.colType.Text = "Tipo";
-            this.colType.Width = 218;
-            // 
             // txtNotes
             // 
             this.txtNotes.Location = new System.Drawing.Point(8, 297);
@@ -285,14 +379,6 @@
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(374, 103);
             this.txtNotes.TabIndex = 16;
-            // 
-            // txtToPay
-            // 
-            this.txtToPay.Location = new System.Drawing.Point(369, 132);
-            this.txtToPay.Name = "txtToPay";
-            this.txtToPay.ReadOnly = true;
-            this.txtToPay.Size = new System.Drawing.Size(90, 20);
-            this.txtToPay.TabIndex = 15;
             // 
             // ddlContact_Seller
             // 
@@ -302,15 +388,6 @@
             this.ddlContact_Seller.Name = "ddlContact_Seller";
             this.ddlContact_Seller.Size = new System.Drawing.Size(190, 21);
             this.ddlContact_Seller.TabIndex = 14;
-            // 
-            // txtAmountTotal
-            // 
-            this.txtAmountTotal.Location = new System.Drawing.Point(369, 106);
-            this.txtAmountTotal.Name = "txtAmountTotal";
-            this.txtAmountTotal.Size = new System.Drawing.Size(90, 20);
-            this.txtAmountTotal.TabIndex = 13;
-            this.txtAmountTotal.TextChanged += new System.EventHandler(this.AllowOnlyNumbers);
-            this.txtAmountTotal.Enter += new System.EventHandler(this.txtAmountTotal_Enter);
             // 
             // ddlStatus
             // 
@@ -339,32 +416,14 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "Notas";
             // 
-            // label7
+            // lblContact_Seller
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 149);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Vendedor";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(287, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Por pagar";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(287, 109);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Cantidad Total";
+            this.lblContact_Seller.AutoSize = true;
+            this.lblContact_Seller.Location = new System.Drawing.Point(10, 149);
+            this.lblContact_Seller.Name = "lblContact_Seller";
+            this.lblContact_Seller.Size = new System.Drawing.Size(53, 13);
+            this.lblContact_Seller.TabIndex = 7;
+            this.lblContact_Seller.Text = "Vendedor";
             // 
             // txtID
             // 
@@ -401,64 +460,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(422, 18);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(473, 386);
-            this.tabControl1.TabIndex = 35;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.listDocuments);
-            this.tabPage1.Controls.Add(this.btnAddDocument);
-            this.tabPage1.Controls.Add(this.btnRemoveDocument);
-            this.tabPage1.Controls.Add(this.btnOpenFolder);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(465, 360);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Documentos";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.listPayments);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.txtAmountTotal);
-            this.tabPage2.Controls.Add(this.txtToPay);
-            this.tabPage2.Controls.Add(this.btnPayment);
-            this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.txtNewPayment);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(465, 360);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pagos";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Titulo";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(44, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 20);
-            this.textBox1.TabIndex = 37;
-            // 
             // ServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,7 +489,7 @@
         private System.Windows.Forms.ComboBox ddlStatus;
         private System.Windows.Forms.ComboBox ddlContact_Client;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblContact_Seller;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtID;

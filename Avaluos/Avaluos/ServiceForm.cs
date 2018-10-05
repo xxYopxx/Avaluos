@@ -54,13 +54,15 @@ namespace Avaluos
         private void svcAC_Load(object sender, EventArgs e)
         {
             // Load Contact list and fill dropdown lists
-            ContactCollection contacts = new ContactCollection();
-            contacts.Search();
-            ddlContact_Client.DataSource = contacts.Results;
+            ContactCollection clients = new ContactCollection();
+            clients.Search();
+            ddlContact_Client.DataSource = clients.Results;
             ddlContact_Client.DisplayMember = "Name";
             ddlContact_Client.ValueMember = "SAK_Contact";
 
-            ddlContact_Seller.DataSource = contacts.Results;
+            ContactCollection sellers = new ContactCollection();
+            sellers.Search();
+            ddlContact_Seller.DataSource = sellers.Results;
             ddlContact_Seller.DisplayMember = "Name";
             ddlContact_Seller.ValueMember = "SAK_Contact";
 
@@ -250,7 +252,7 @@ namespace Avaluos
                 ClearFields();
             }
         }
-
+        
         private void PrepareToSave()
         {
             if (_isNew)
@@ -308,6 +310,12 @@ namespace Avaluos
         private void dteVisit_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
+        }
+
+        private void ddlServiceType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblContact_Seller.Visible = ddlServiceType.SelectedIndex == 0 || ddlServiceType.SelectedIndex == 2;
+            ddlContact_Seller.Visible = ddlServiceType.SelectedIndex == 0 || ddlServiceType.SelectedIndex == 2;
         }
     }
 }
